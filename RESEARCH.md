@@ -9,7 +9,7 @@ large shared reference table. Started 2026-10-22. The original brief is in `prom
 
 - This file is the source of truth: goal, decisions, every experiment with results, and what's next.
   Update it after every experiment: append to the log, don't rewrite history.
-- All code is in `lab/` (Python 3 + numpy, run from the project root). Data is in `corpus/`, frozen tables in `tables/`.
+- All code is in `lab/` (Python 3 + numpy, run from the project root); `lab/README.md` maps every script and experiment directory, and each directory has its own README (question, verdict, key result, how to run). Data is in `corpus/`, frozen tables in `tables/`.
 - Running experiments write their own results to `lab/exp_*/RESULTS.md`; merge their conclusions here.
 - The user wants to be part of the decisions: measure first, present numbers, and pick together.
   Don't publish anything externally (no claude.ai docs, Drive, etc.); everything stays on disk.
