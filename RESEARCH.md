@@ -364,7 +364,27 @@ gzip (588 B)** and 13% smaller than the best table (239 B). Speed in numpy: ~0.4
 |---|---|---|---|
 | **1. table routing** (`routing.py`) | the encoder tries every table and keeps the smallest; the fingerprint in the header names it, so it costs 0 extra bytes | picks the right table for 30/30 books and code and 59/60 wiki; result = best of both: books 224, wiki 229, code 220 B (1 KB) | ✅ adopt: "a set of tables, chosen per file" |
 | **2. match model** (`match_model.py`) | PAQ-style match model (hash of 6 bytes, follow the earlier occurrence) + an APM table (match length × model probability), next to the 20M model; ideal bits | code -5% (1 KB) / **-17%** (10 KB), wiki -3% / -8%, books +0.8% / -0.3%; matches cover 39-56% of code bytes | ✅ adopt, with a header flag (on/off) so books never lose; full books pending |
-| **3. code-aware tokenizer** (`code_tokens.py`) | identifiers with `_`/digits, digit runs and indentation runs as one token; mixed table rebuilt | code **+4.5% worse** (220 → 230 B), wiki -0.5%, books equal | ❌ hand-written splitting loses: whole identifiers are often unique (spelled), while the old pieces are reusable. A tokenizer change should be *learned* (BPE) |
+| **3. code-aware tokenizer** (`code_tokens.py`) | identifiers with `_`/digits, digit runs and indentation runs as one token; mixed table rebuilt | code **+4.5% worse** (220 → 230 B), wiki -0.5%, books equal | ❌ **dropped** (user decision): hand-written splitting loses, because whole identifiers are often unique (spelled) while the old pieces are reusable. A tokenizer change should be *learned* (BPE) |
+
+### v2: everything we learned in one codec (`lab/v2/`), started 2026-10-23 evening
+User decision: **adopt tricks 1 (routing) and 2 (match model), drop trick 3 (hand-written code tokenizer).**
+- `codec2.py`: a v2 container with a **unique method id per method** (0 stored, 1 table static, 2 table adaptive, 3 reserved for the
+  E9 chain variant, 4 neural, 5 neural + match). This fixes E11's finding that mode byte 2 was used by *three* methods (adaptive, chain, nncodec).
+  The encoder tries every method × resource and keeps the smallest; the fingerprint names the resource (no extra bytes).
+- `neuralmatch.py`: method 5, an integer match model on top of the E12 integer neural codec (binary hit/miss with an adaptive
+  integer probability, then the byte with the predicted one excluded). First test: code 1 KB 262 → 213 B (-19%), round trips OK.
+- `evaluate.py`: real bytes for all candidates on the domains set, chosen files decode-verified. Interim result (1 KB + 3 KB complete;
+  10 KB still running, ~2 h, because numpy neural decode is the bottleneck):
+
+  | 1 KB / 3 KB | gzip | 3 GB table + ad. | mixed table + ad. | neural (20m_big) | neural + match | **v2 (best per file)** | mostly chosen |
+  |---|---|---|---|---|---|---|---|
+  | books | 565 / 1,480 | 224 / 641 | 256 / 732 | 197 / 555 | 199 / 558 | **197 / 554** | neural |
+  | wiki | 538 / 1,411 | 321 / 936 | 229 / 679 | 278 / 813 | 269 / 772 | **226 / 673** | mixed table |
+  | code | 421 / 1,061 | 370 / 1,031 | 220 / 638 | 302 / 865 | 288 / 786 | **219 / 638** | mixed table |
+
+  Real files, every chosen file decoded and checked: **2.9× smaller than gzip on books, 2.4× on wiki, 1.9× on code.** The router picks
+  the neural model for books and the mixed table for wiki/code, plus neural + match for some single docs. The neural model loses outside books
+  because it's books-trained; the R3-2 mixed-domain model can be swapped in via its fingerprint, and the same evaluation will show it.
 
 ## Reproducibility (2026-10-22)
 

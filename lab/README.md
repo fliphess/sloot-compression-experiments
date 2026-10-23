@@ -33,7 +33,8 @@ this file is the map.
 | [`exp_chain/`](exp_chain/) | E9 | can the table be shipped as a compressed seed corpus and rebuilt identically? | ✅ proven | seed 19 MB < table 31 MB; fingerprint identical. `METHOD.md` = spec draft |
 | [`exp_tinymodel/`](exp_tinymodel/) | E10 | could a small self-trained neural model beat the table? | ⚠️ superseded by `round2/` | a 19 MB model matches the 545 MB table |
 | [`c/`](c/) | E11 | C port of the codec, bit-identical to Python | ✅ | 20-250× faster; needs a code review |
-| [`round2/`](round2/) | R2, E12 | model trained on 3 GB; mixing; integer-only inference | ✅ current best | 207 B per 1 KB (2.8× smaller than gzip) |
+| [`round2/`](round2/) | R2, E12, E13 | model trained on 3 GB; mixing; integer-only inference; domains; tricks | ✅ | 207 B per 1 KB (2.8× smaller than gzip) |
+| [`v2/`](v2/) | v2 | everything combined: per-file routing over tables + neural (+ match model), unique method ids | ✅ current | running |
 
 ## Dependencies
 
