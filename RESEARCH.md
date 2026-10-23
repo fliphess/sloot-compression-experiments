@@ -3,7 +3,7 @@
 Research into a modern, honest version of the
 [Sloot Digital Coding System](https://en.wikipedia.org/wiki/Sloot_Digital_Coding_System):
 very high compression for long-term archival storage (eventually on paper), driven by a
-large shared reference table. Started 2026-10-22. The original brief is in `prompt.txt`.
+large shared reference table. Started 2026-10-22. The original question is summarised under "Goal" below.
 
 ## Handover: read this first
 
@@ -18,7 +18,7 @@ large shared reference table. Started 2026-10-22. The original brief is in `prom
 
 The user decided to stop here, after the last running job (mixed-domain model, see "Final results pending" below).
 
-**What we set out to do** (`prompt.txt`): a compression mechanism, a reference mechanism and a paper standard, in the spirit of
+**What we set out to do:** a compression mechanism, a reference mechanism and a paper standard, in the spirit of
 Jan Sloot's "coding, not compression", built to last forever.
 
 **What we learned**

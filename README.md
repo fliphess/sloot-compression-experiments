@@ -16,7 +16,7 @@ printed too, which makes the approach unrealistic for its original goal. Along t
 
 | path | in git | contents |
 |---|---|---|
-| `WRITEUP.md`, `RESEARCH.md`, `prompt.txt` | yes | the story, the log, the original question |
+| `WRITEUP.md`, `RESEARCH.md` | yes | the story and the detailed log |
 | `pyproject.toml`, `uv.lock` | yes | Python dependencies (numpy; PyTorch as the optional `neural` extra) |
 | `lab/` | yes | all code, experiment results and logs |
 | `lab/corpus_manifest.json`, `lab/exp_table/manifest.json` | yes | SHA-256 of every corpus file, so a rebuilt corpus can be checked |
