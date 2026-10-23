@@ -1,0 +1,65 @@
+{
+ "config": "sum-w128",
+ "books": {
+  "10": {
+   "raw": 4336576,
+   "real": 956506,
+   "verified": false,
+   "seconds": 81.39265704154968
+  },
+  "46": {
+   "raw": 158416,
+   "real": 37126,
+   "verified": true,
+   "seconds": 6.85292911529541
+  },
+  "145": {
+   "raw": 1812691,
+   "real": 408695,
+   "verified": false,
+   "seconds": 33.42883610725403
+  },
+  "408": {
+   "raw": 402253,
+   "real": 100583,
+   "verified": true,
+   "seconds": 18.469823360443115
+  },
+  "1232": {
+   "raw": 283426,
+   "real": 63403,
+   "verified": true,
+   "seconds": 10.295068979263306
+  },
+  "1952": {
+   "raw": 31904,
+   "real": 7243,
+   "verified": true,
+   "seconds": 0.855931282043457
+  },
+  "2701": {
+   "raw": 1234542,
+   "real": 325503,
+   "verified": false,
+   "seconds": 30.771629095077515
+  },
+  "5197": {
+   "raw": 1256025,
+   "real": 281797,
+   "verified": false,
+   "seconds": 23.709999084472656
+  },
+  "20203": {
+   "raw": 439241,
+   "real": 106856,
+   "verified": true,
+   "seconds": 19.456362009048462
+  },
+  "37683": {
+   "raw": 2231174,
+   "real": 750757,
+   "verified": false,
+   "seconds": 132.00248980522156
+  }
+ }
+}

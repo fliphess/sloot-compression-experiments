@@ -1,0 +1,2 @@
+{"i": 1, "size": 1000, "j": 1, "bytes_in": 1000, "bytes_out": 311, "ideal_bits": 2428.22037220128, "sha256": "1b038c23cb6812d0219ddee7ae2b763ae681edf930dd13669a74254f91fc6389", "enc_s": 1.5766366668976843, "threads": "1", "dec_s": 4.616214249981567, "ok": true}
+{"i": 3, "size": 1000, "j": 3, "bytes_in": 1000, "bytes_out": 230, "ideal_bits": 1777.9285923379991, "sha256": "9fc5e24ea9b91ec218634f5d1f623f6cf22502a556df3e1f890034e0ded538d7", "enc_s": 1.474709624890238, "threads": "1", "dec_s": 4.345464749960229, "ok": true}

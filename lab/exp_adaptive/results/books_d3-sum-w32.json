@@ -1,0 +1,65 @@
+{
+ "config": "d3-sum-w32",
+ "books": {
+  "10": {
+   "raw": 4336576,
+   "real": 901931,
+   "verified": false,
+   "seconds": 87.0189299583435
+  },
+  "46": {
+   "raw": 158416,
+   "real": 36911,
+   "verified": true,
+   "seconds": 5.95231819152832
+  },
+  "145": {
+   "raw": 1812691,
+   "real": 395328,
+   "verified": false,
+   "seconds": 39.43276333808899
+  },
+  "408": {
+   "raw": 402253,
+   "real": 99129,
+   "verified": true,
+   "seconds": 23.148597955703735
+  },
+  "1232": {
+   "raw": 283426,
+   "real": 62851,
+   "verified": true,
+   "seconds": 13.430267095565796
+  },
+  "1952": {
+   "raw": 31904,
+   "real": 7208,
+   "verified": true,
+   "seconds": 1.1396899223327637
+  },
+  "2701": {
+   "raw": 1234542,
+   "real": 316090,
+   "verified": false,
+   "seconds": 36.42786264419556
+  },
+  "5197": {
+   "raw": 1256025,
+   "real": 274521,
+   "verified": false,
+   "seconds": 25.80958390235901
+  },
+  "20203": {
+   "raw": 439241,
+   "real": 105473,
+   "verified": true,
+   "seconds": 18.35180115699768
+  },
+  "37683": {
+   "raw": 2231174,
+   "real": 711764,
+   "verified": false,
+   "seconds": 99.34655594825745
+  }
+ }
+}

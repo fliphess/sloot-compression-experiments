@@ -1,0 +1,87 @@
+{
+ "table": "en-gutenberg-v1",
+ "config": "d3-sum-w32",
+ "set": "val",
+ "table_mb": 31.0,
+ "vocab": 136525,
+ "fingerprint": "1cd43ea2",
+ "short": {
+  "1000": {
+   "avg_bytes": 259.64,
+   "bpc": 2.0728913017444413,
+   "secs": 3
+  },
+  "3000": {
+   "avg_bytes": 754.22,
+   "bpc": 2.006691454759513,
+   "secs": 9
+  },
+  "10000": {
+   "avg_bytes": 2471.14,
+   "bpc": 1.9716083734753513,
+   "secs": 31
+  },
+  "30000": {
+   "avg_bytes": 7377.16,
+   "bpc": 1.9616663032552797,
+   "secs": 82
+  }
+ },
+ "books": {
+  "2844": {
+   "bytes": 101535,
+   "real": 25077,
+   "verified": true,
+   "secs": 5
+  },
+  "17682": {
+   "bytes": 455635,
+   "real": 113128,
+   "verified": true,
+   "secs": 35
+  },
+  "25710": {
+   "bytes": 353415,
+   "real": 85020,
+   "verified": true,
+   "secs": 22
+  },
+  "34273": {
+   "bytes": 220207,
+   "real": 58074,
+   "verified": true,
+   "secs": 19
+  },
+  "41295": {
+   "bytes": 154346,
+   "real": 43894,
+   "verified": true,
+   "secs": 13
+  },
+  "48408": {
+   "bytes": 384754,
+   "real": 85651,
+   "verified": true,
+   "secs": 25
+  },
+  "74567": {
+   "bytes": 409546,
+   "real": 96661,
+   "verified": true,
+   "secs": 24
+  }
+ },
+ "book_ids": [
+  "2844",
+  "9603",
+  "17682",
+  "25710",
+  "34273",
+  "41295",
+  "48408",
+  "56540",
+  "65654",
+  "74567"
+ ],
+ "done": true
+}

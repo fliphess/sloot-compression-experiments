@@ -1,0 +1,38 @@
+{
+ "1000": {
+  "table": 238.8,
+  "model": 206.7,
+  "switch_16": 204.5,
+  "switch_64": 204.9,
+  "switch_256": 206.5,
+  "switch_1024": 207.1,
+  "oracle_per_token": 185.4
+ },
+ "3000": {
+  "table": 694.0,
+  "model": 588.8,
+  "switch_16": 584.2,
+  "switch_64": 586.0,
+  "switch_256": 588.6,
+  "switch_1024": 589.2,
+  "oracle_per_token": 527.9
+ },
+ "10000": {
+  "table": 2260.4,
+  "model": 1923.0,
+  "switch_16": 1903.8,
+  "switch_64": 1914.4,
+  "switch_256": 1921.9,
+  "switch_1024": 1923.3,
+  "oracle_per_token": 1713.3
+ },
+ "30000": {
+  "table": 6672.0,
+  "model": 5711.0,
+  "switch_16": 5640.3,
+  "switch_64": 5680.7,
+  "switch_256": 5705.9,
+  "switch_1024": 5711.1,
+  "oracle_per_token": 5062.3
+ }
+}

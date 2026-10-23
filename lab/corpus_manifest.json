@@ -1,0 +1,426 @@
+{
+ "enwik8": {
+  "sha256": "2b49720ec4d78c3c9fabaee6e4179a5e997302b3a70029f30f2d582218c024a8",
+  "bytes": 100000000
+ },
+ "gutenberg/10.txt": {
+  "sha256": "8d4cd267149795cdb66793a4728da9320bcbe7799a81e4d80ccb78b0eb2029b1",
+  "bytes": 4336576
+ },
+ "gutenberg/11.txt": {
+  "sha256": "b44b499274ef98e0bc12c190ee08d9c63480b7c96946101a540a0cb24b3a944c",
+  "bytes": 151095
+ },
+ "gutenberg/12.txt": {
+  "sha256": "b325755088909c009cf8fd0df6c4179d24a0730aceb15f3411616bfb95f05b3d",
+  "bytes": 172680
+ },
+ "gutenberg/16.txt": {
+  "sha256": "f093a7678a91786d3d4b22cbf82f16f9ddb917939db0c4b102a4c90fcf855240",
+  "bytes": 262746
+ },
+ "gutenberg/23.txt": {
+  "sha256": "5d1c5ee5c447066c474148283ae0654bad1a132390202764c2de10888209d457",
+  "bytes": 225366
+ },
+ "gutenberg/35.txt": {
+  "sha256": "694d1369ab9bd8399dbb37e676b74e55cd058790551546eae7c55d54f608a952",
+  "bytes": 181475
+ },
+ "gutenberg/36.txt": {
+  "sha256": "029c1790450e9437aacdde1d70cc51a884cbfcc0b57e266f378070e88e4b3dee",
+  "bytes": 340504
+ },
+ "gutenberg/41.txt": {
+  "sha256": "14dfbab6784099770a04cfc20b67213929595d47078f14143980e0f87b4e1338",
+  "bytes": 69928
+ },
+ "gutenberg/43.txt": {
+  "sha256": "688062a341d34e7ef6718ecb5e352978b136766ea4131966f4245ccff9ac6000",
+  "bytes": 141074
+ },
+ "gutenberg/45.txt": {
+  "sha256": "bd14660006ea9d0394bb29548740dac66f9987d68876163f509deacfb5d1e9b0",
+  "bytes": 576121
+ },
+ "gutenberg/46.txt": {
+  "sha256": "9a17e3fa751c44022b9f9b282ca3551780b6c7385aea8ac162a59d773de2e3cd",
+  "bytes": 158416
+ },
+ "gutenberg/55.txt": {
+  "sha256": "94a11d5818c4e3367290d16ab4e9cd909a67ea544afd271be92309e90b31fbbf",
+  "bytes": 212704
+ },
+ "gutenberg/74.txt": {
+  "sha256": "1dade7b8e9e86fae3dd0173c058501c07881229b824f23947641ec099482d3ef",
+  "bytes": 405626
+ },
+ "gutenberg/76.txt": {
+  "sha256": "8c3f8b1b64e9d4390411b5df69b26246560a3c42a7d264deb8f1f91929b7fd4c",
+  "bytes": 590657
+ },
+ "gutenberg/84.txt": {
+  "sha256": "bde72e6909fb0caebf375b81f7a63140d2b6ffab49a473c670a498dee96934a8",
+  "bytes": 421536
+ },
+ "gutenberg/98.txt": {
+  "sha256": "d614b101548dd9271afa7f63f0899640cf0b91ccf3daae0ac46e5bf09d62105c",
+  "bytes": 771503
+ },
+ "gutenberg/100.txt": {
+  "sha256": "bfb5a5764506115cbae33bfdf66014697ef69d06339f001db209d3f2a56c83fc",
+  "bytes": 5422620
+ },
+ "gutenberg/120.txt": {
+  "sha256": "ef67b01f998cbd2c75650bd8aad781ddedb50dccc9d4725eefb93efa68a72f71",
+  "bytes": 372620
+ },
+ "gutenberg/132.txt": {
+  "sha256": "177f57b6f7249188f0ed2745691f1c8c32f18fe7aae2862a9be7ba79c4f4045a",
+  "bytes": 315552
+ },
+ "gutenberg/135.txt": {
+  "sha256": "3790b506959d4d8e91083ade2d91092cf56e93ca9027418e6bedbe8b34386ed7",
+  "bytes": 3276195
+ },
+ "gutenberg/145.txt": {
+  "sha256": "db33091e5dfb388041d13c5037409b0b08833628d3b06c24ab7fd9f522249923",
+  "bytes": 1812691
+ },
+ "gutenberg/158.txt": {
+  "sha256": "17df39a0375ebac2959aef48ab763bd68f69557a6004aede94d43cc91e04b85a",
+  "bytes": 897480
+ },
+ "gutenberg/161.txt": {
+  "sha256": "b357d9b15410fa3e58ce91405727ce41450532a4f501f35df931a7f85e1fb1bb",
+  "bytes": 680409
+ },
+ "gutenberg/174.txt": {
+  "sha256": "aa8346331b9532dab86d8ab25a4a4ad598dc1c79e7ec2ed66157db9881861236",
+  "bytes": 437456
+ },
+ "gutenberg/205.txt": {
+  "sha256": "67c01b61970d6eecbccb372a6d5c2b644ae76f3c8fdac21eb238fea502306b05",
+  "bytes": 637838
+ },
+ "gutenberg/209.txt": {
+  "sha256": "e74de22bfcb3a3013b538614217d5bd4081ac03860ba348c1512774960378cfb",
+  "bytes": 234872
+ },
+ "gutenberg/219.txt": {
+  "sha256": "56e2c3f429ebc19aa5bfb837a4e0bbe73263f5b742e7d14ec445540baf88a729",
+  "bytes": 213939
+ },
+ "gutenberg/244.txt": {
+  "sha256": "2d5d1e7d0803807d688a77e847ac2c07319a0a03f2bbc8077257dd928ffd4bc5",
+  "bytes": 244243
+ },
+ "gutenberg/345.txt": {
+  "sha256": "27ff3ad852dccfe9edc06a56b7f5936520148f66bf358ab2e229a576cd076c1b",
+  "bytes": 855074
+ },
+ "gutenberg/394.txt": {
+  "sha256": "b725d315101e34d45dee8b4ec7945fe33eac4abe4c4daae8e7e801d9207597cb",
+  "bytes": 395058
+ },
+ "gutenberg/408.txt": {
+  "sha256": "41936d9530381ad80aeb3b14b0e6a4f5312632bf4c3592053c5f5589dd7ced3a",
+  "bytes": 402253
+ },
+ "gutenberg/514.txt": {
+  "sha256": "c6308b76332136d22a5dfc45e7e4eb8aaa5a8d416ad032fd5544f96af46a0231",
+  "bytes": 1030871
+ },
+ "gutenberg/730.txt": {
+  "sha256": "bd74c7181288de82a2ad726dbb267abee316173cefe9f412563c73bd56049213",
+  "bytes": 917255
+ },
+ "gutenberg/768.txt": {
+  "sha256": "6ed5d10a515e2e025b0941dbccf22f291b2212a22226b3c2e442ce27ba93d71a",
+  "bytes": 661711
+ },
+ "gutenberg/829.txt": {
+  "sha256": "0c3e288408fd2c8940f5169518dda829d101cc58b9f709337bfe3055400235cc",
+  "bytes": 584472
+ },
+ "gutenberg/844.txt": {
+  "sha256": "c89baeb2febea37c10858d5097d4316c6abd4d4953dc498da930d0f0a4c6483e",
+  "bytes": 117987
+ },
+ "gutenberg/996.txt": {
+  "sha256": "a7448c4d9cad4012b277854a603096e088d8fb5640b56d54d5c9fe1be343f32c",
+  "bytes": 2328990
+ },
+ "gutenberg/1080.txt": {
+  "sha256": "5ecfd997c88a5e7a8f05713cf98330ba8556447366b579a965ad7c76a311703c",
+  "bytes": 19512
+ },
+ "gutenberg/1184.txt": {
+  "sha256": "a3176714cd94d01778f5022f3e2678b07a881e0149096bdeac6903f37a883389",
+  "bytes": 2705948
+ },
+ "gutenberg/1228.txt": {
+  "sha256": "b8aa5011c387e9bbb73fc43c6e141ced0282fbe2cbe57f3da3bcb060fd1c6c69",
+  "bytes": 934492
+ },
+ "gutenberg/1232.txt": {
+  "sha256": "33e616c68ed77837dd40d587a30b97988783c76126c8fbb7ae220c53780648d0",
+  "bytes": 283426
+ },
+ "gutenberg/1259.txt": {
+  "sha256": "7157ba0712d5688104280f32a60ad46887d91dce48fcd6721246794113e98805",
+  "bytes": 1420135
+ },
+ "gutenberg/1260.txt": {
+  "sha256": "a535895cbb7c9bd50f8ae3f30e001ac5c0f25ce5925d61e6277e2a597102d6ca",
+  "bytes": 1043963
+ },
+ "gutenberg/1342.txt": {
+  "sha256": "ec5006ab5edb21cf0ee304712665ef03a8a96bc5ef2e8bb70877dca86973d79c",
+  "bytes": 737914
+ },
+ "gutenberg/1399.txt": {
+  "sha256": "8c17942439a37d85838cea7f079a8eaec081e43e91b60334d18ec3cc70cccef9",
+  "bytes": 2008297
+ },
+ "gutenberg/1400.txt": {
+  "sha256": "b8ed36381a778163bb64691e827e629dbccead1f978f66a2d033e1a018a5a3cf",
+  "bytes": 1018009
+ },
+ "gutenberg/1497.txt": {
+  "sha256": "30e5b674ac9f72c4906cfb5cf5d3f1e0df3b8459a1211d3a36879b6abad6515f",
+  "bytes": 1199840
+ },
+ "gutenberg/1513.txt": {
+  "sha256": "8a82a91cc44c4d77ff9e2477a5317e2232306ef4eb388d1787264c6a606e7faf",
+  "bytes": 144397
+ },
+ "gutenberg/1661.txt": {
+  "sha256": "a4866cc751985c68a8dec9753cc5afc4f5c7da0332f1be320e053ae8d19a7c71",
+  "bytes": 575794
+ },
+ "gutenberg/1727.txt": {
+  "sha256": "83b5ab26a6c80445db52fd5bc64ba0679041a7b54edc4155a4b42e858b5462d1",
+  "bytes": 686140
+ },
+ "gutenberg/1952.txt": {
+  "sha256": "bfb16b1ebb0bef2051490e1599934607e7aa06fe6805275cfd3e554bf0c186d2",
+  "bytes": 31904
+ },
+ "gutenberg/1998.txt": {
+  "sha256": "8e91510761af270345e13473b78d2c45ce4dccee4c1d8f326e4d50f6f6919614",
+  "bytes": 647318
+ },
+ "gutenberg/2148.txt": {
+  "sha256": "d7d86f5cb2278b9cb5f1773cd715077747572fd480dfd9544c0411ae3be4d43b",
+  "bytes": 608299
+ },
+ "gutenberg/2160.txt": {
+  "sha256": "9763db3d399b21fdc7c703ade85e337d71734c8b99a02b98dec777128d605bc6",
+  "bytes": 853845
+ },
+ "gutenberg/2542.txt": {
+  "sha256": "055e4f62e703f4cd4ab2e4a1e73f879bee53b82f72b6a3253f27ea854477d1cc",
+  "bytes": 144057
+ },
+ "gutenberg/2554.txt": {
+  "sha256": "ca13494d1b2b07cb5fe47146a1e5cccffd9667e4fd29c8aaecd4fd0ed981e7ff",
+  "bytes": 1160565
+ },
+ "gutenberg/2591.txt": {
+  "sha256": "7a46bd703893bdc54e79be63e9a69fe63d793781ce534e425103e0447603abc4",
+  "bytes": 531096
+ },
+ "gutenberg/2600.txt": {
+  "sha256": "c7156148ecaa12b6416cf816540d8dede2014982554a835e61076f0dd8bf0c2d",
+  "bytes": 3274124
+ },
+ "gutenberg/2641.txt": {
+  "sha256": "0dd5468a05eddc08825596acabb95ddcf75aedd02e91cf2b89d08cac89a6b121",
+  "bytes": 387348
+ },
+ "gutenberg/2680.txt": {
+  "sha256": "95bcfa55d3a6bba03c42af3f32cff2dd5a7e3822962c8f267d3249f769adbfba",
+  "bytes": 398683
+ },
+ "gutenberg/2701.txt": {
+  "sha256": "b8d4a465cfb1eb0c7c8a3bd597f0af7666d00caa5d3a40aa52f7af9819e31d7b",
+  "bytes": 1234542
+ },
+ "gutenberg/2814.txt": {
+  "sha256": "1b626998d4b5b37a3f4cb6037f8a832da6600803f657d62d35fb2e0391b0675b",
+  "bytes": 378036
+ },
+ "gutenberg/2852.txt": {
+  "sha256": "4bf27abb837abd43bd787dcfd9aa58d6c9578381836de74a4f7300233fccf2e7",
+  "bytes": 360858
+ },
+ "gutenberg/3207.txt": {
+  "sha256": "561f26bb562903058e8e1807021b4f0428b086a062ff8d3bf7d31188492fd732",
+  "bytes": 1212566
+ },
+ "gutenberg/3296.txt": {
+  "sha256": "7cfe7ca317eb27075ed6a0cec6caec51bea81352c9ad873ca64202c920d9024e",
+  "bytes": 602962
+ },
+ "gutenberg/3300.txt": {
+  "sha256": "e452e5762908c46b9fde1fa07f74112d341bad5259b848d1e87e6cd3e1ba365f",
+  "bytes": 2414440
+ },
+ "gutenberg/3600.txt": {
+  "sha256": "05edca7c5d7d1c8b2215ddde256ab16093e138443ed8c451a5ab22ad34b4ee43",
+  "bytes": 3033551
+ },
+ "gutenberg/4085.txt": {
+  "sha256": "89b0d8b2c84c023dd409e8791a7837eb263a0eb7dfede4cfbc86574123dff539",
+  "bytes": 1082247
+ },
+ "gutenberg/4300.txt": {
+  "sha256": "bff261b23c123680ecdb4ee5ea5d20184a27ab0aec6615de378155d483f47e90",
+  "bytes": 1533770
+ },
+ "gutenberg/4363.txt": {
+  "sha256": "afbe1ac297926978bcbdd50bcc60931c66972a3121098cbd94fd3b21ac1b858e",
+  "bytes": 382769
+ },
+ "gutenberg/5197.txt": {
+  "sha256": "2f44db3235a61a6e25a0065d5fb78a44ed0c622ad1776d23e83222af3416730a",
+  "bytes": 1256025
+ },
+ "gutenberg/5200.txt": {
+  "sha256": "966b9c1c7e0cb17f8d5330fa724bdd5e55dfd76ddf80cfbcaa45b881f31b185f",
+  "bytes": 119757
+ },
+ "gutenberg/6593.txt": {
+  "sha256": "4cd300efb6604397436205bf972fcff9dd9fcec80a3786a581f8f49033377b22",
+  "bytes": 1978515
+ },
+ "gutenberg/6761.txt": {
+  "sha256": "216c916e5bd62cb75f4ad1a945ac4492529d816473ed342b4a0040d732e41fdf",
+  "bytes": 958686
+ },
+ "gutenberg/7370.txt": {
+  "sha256": "1d87dd369877bf6f4a6f748d329679dc70c9c7ea0ac19c2985cc1213013e4729",
+  "bytes": 314030
+ },
+ "gutenberg/8492.txt": {
+  "sha256": "2f23e11d7375474e165241e572fcdf7570ce3caeac73315839956d052070007f",
+  "bytes": 412493
+ },
+ "gutenberg/8800.txt": {
+  "sha256": "f90acf43052b94654d58591574bbab3f333f8fb8eb09a8499d4121fabecbb62d",
+  "bytes": 621280
+ },
+ "gutenberg/10007.txt": {
+  "sha256": "e889465ccf2fe8a56b13c521d55c57baf09ef5e0489d80481102d8e025482f52",
+  "bytes": 157947
+ },
+ "gutenberg/16328.txt": {
+  "sha256": "f8b7293d26df5064d476f7fd911261fba30b1704fafc2161cb1ec2d4d59b54fa",
+  "bytes": 273952
+ },
+ "gutenberg/16389.txt": {
+  "sha256": "64b741f7798cb866a1f0300209feec5f141bc8e0a1241e80f7879892d5aa7ae4",
+  "bytes": 447900
+ },
+ "gutenberg/20203.txt": {
+  "sha256": "6d2fa0b28885d3b2a2c553ad70ea3a8e4910bfdfd135e4a06fd44adc24eeb0fc",
+  "bytes": 439241
+ },
+ "gutenberg/25344.txt": {
+  "sha256": "8b8c1d2c41cc5d4153dd5d8d375efd038e6cc7cbce0ec446eaacd27b8b9bfe6c",
+  "bytes": 497650
+ },
+ "gutenberg/26184.txt": {
+  "sha256": "5345dc0effeeb4016f6a7cb75a9f840dcaa0dbf13f8927aee840e1182085fae4",
+  "bytes": 54263
+ },
+ "gutenberg/27509.txt": {
+  "sha256": "e19d4e1049888dfc19c5e60df755da2394f856143a978e000b800442f999da7a",
+  "bytes": 8878944
+ },
+ "gutenberg/27827.txt": {
+  "sha256": "35a8f4e9ab89bf9944f325229783fc937a413fe575e69f51622dcbe5e3655402",
+  "bytes": 331934
+ },
+ "gutenberg/28054.txt": {
+  "sha256": "a8da4f61494ed71b2f3b598a17b511cea3e07dae88d757b7dd4b3ab5b2dcd40d",
+  "bytes": 1982079
+ },
+ "gutenberg/28428.txt": {
+  "sha256": "2bdc8d064c0770e853c615820cd9a480479cae4101d845bdd136b7754fe10d46",
+  "bytes": 1322494
+ },
+ "gutenberg/34901.txt": {
+  "sha256": "7b13eba8d886fe97a8f9a596d5f5c24bf7a235946637d1317a31cababe8c55ff",
+  "bytes": 306472
+ },
+ "gutenberg/36034.txt": {
+  "sha256": "ee8ddd45e800f4af238e8d69b7be6b6baa2c2acc287009e234a7085140a54e34",
+  "bytes": 650171
+ },
+ "gutenberg/37106.txt": {
+  "sha256": "771ccc0575b7e7268a66ceaeab4b647c850a3029c2e97dab16f4274a666d1209",
+  "bytes": 1070968
+ },
+ "gutenberg/37683.txt": {
+  "sha256": "691fe15ccbeb0428c03aaf8186afb470dfe7e9d27ac169b476c53eb692e8ec7b",
+  "bytes": 2231174
+ },
+ "gutenberg/41445.txt": {
+  "sha256": "ef69ef0b9b09c63aa28107744d8757008a5cd24ffa467634fab7ed7596cd001c",
+  "bytes": 410766
+ },
+ "gutenberg/42324.txt": {
+  "sha256": "dddb4bf30aebe362f0d7b58acfb8c3ad3f20b64810d433cf857d15de2653cb24",
+  "bytes": 438160
+ },
+ "gutenberg/45109.txt": {
+  "sha256": "e1e18b3e85dc18ee950f33749deaf5d77070d13c84e17d15ef7bd5746d505a50",
+  "bytes": 70434
+ },
+ "gutenberg/61985.txt": {
+  "sha256": "21640727c33466a74e2295671172281cca83ce71f8d21e4dd337b59a58347470",
+  "bytes": 6007660
+ },
+ "gutenberg/64317.txt": {
+  "sha256": "b85487b89c4b5f13efc6a59bc97b5c81ec4371768e6c1106b388153fb764f36b",
+  "bytes": 280241
+ },
+ "gutenberg/67098.txt": {
+  "sha256": "cc9b957cf4797dfa0ce9d3f5699a846acb2c5bb48f22bcadf2b8fac5e21fde94",
+  "bytes": 129548
+ },
+ "gutenberg/67979.txt": {
+  "sha256": "f70bd4a83267497db6ea1a14458c073dc90a00818c49e2e7ebb28b17ae1144da",
+  "bytes": 400105
+ },
+ "gutenberg/72679.txt": {
+  "sha256": "84398d134d24fffa2648cc048626371849efafa40d8a380bf3722da20691e35d",
+  "bytes": 123680
+ },
+ "gutenberg/79832.txt": {
+  "sha256": "44b38a0dd9e65b0d880e7beb06dffeb9e820b72238160a010c3aeb94ea9bd8be",
+  "bytes": 851615
+ },
+ "samples/enwik_1M.txt": {
+  "sha256": "369b688978f649681136198fb96db14c1616756260c55fb4b65e9bc049552cad",
+  "bytes": 1000000
+ },
+ "samples/enwik_10M.txt": {
+  "sha256": "5985c81c39d927ae0e169625790ca4d9e7d1531270c8b09ad73176a375bb3d97",
+  "bytes": 10000000
+ },
+ "samples/enwik_1M.txt.gz": {
+  "sha256": "7ae08d8eeb708aefa3ea5900dbf9205796c355ad50255426cab84148e22827f8",
+  "bytes": 356704
+ },
+ "samples/pysrc_1M.txt": {
+  "sha256": "e32a94a9c727d97ec61917bd2eaadc5008264ac9ed295a8f9e31f51ccc890d5e",
+  "bytes": 1000000
+ },
+ "samples/random_1M.bin": {
+  "sha256": "4d0e85f96566a80f9ebea4d260aa6ba3c829ab8f719e829be3c98d6d427c0366",
+  "bytes": 1000000
+ }
+}

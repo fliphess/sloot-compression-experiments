@@ -1,0 +1,87 @@
+{
+ "variant": "wrap+case2+sp2+S",
+ "config": "Config(case=True, wrap=True, order=2, escape='S', sp2=True, min_ctx=0, case_prev=True)",
+ "table_mb": 33.1,
+ "vocab": 95427,
+ "fingerprint": "819dc396",
+ "table_load_s": 0.3,
+ "short": {
+  "1000": {
+   "docs": 50,
+   "avg_bytes": 270.4,
+   "bpc": 2.1524,
+   "secs": 1
+  },
+  "3000": {
+   "docs": 50,
+   "avg_bytes": 791.9,
+   "bpc": 2.0995,
+   "secs": 4
+  },
+  "10000": {
+   "docs": 50,
+   "avg_bytes": 2609.0,
+   "bpc": 2.0754,
+   "secs": 13
+  },
+  "30000": {
+   "docs": 50,
+   "avg_bytes": 7760.2,
+   "bpc": 2.057,
+   "secs": 42
+  }
+ },
+ "books": {
+  "10": {
+   "bytes": 4336576,
+   "real": 1160202,
+   "verified": false
+  },
+  "46": {
+   "bytes": 158416,
+   "real": 39420,
+   "verified": true
+  },
+  "145": {
+   "bytes": 1812691,
+   "real": 394766,
+   "verified": false
+  },
+  "408": {
+   "bytes": 402253,
+   "real": 95210,
+   "verified": true
+  },
+  "1232": {
+   "bytes": 283426,
+   "real": 61810,
+   "verified": true
+  },
+  "1952": {
+   "bytes": 31904,
+   "real": 7007,
+   "verified": true
+  },
+  "2701": {
+   "bytes": 1234542,
+   "real": 312099,
+   "verified": false
+  },
+  "5197": {
+   "bytes": 1256025,
+   "real": 268092,
+   "verified": false
+  },
+  "20203": {
+   "bytes": 439241,
+   "real": 104528,
+   "verified": true
+  },
+  "37683": {
+   "bytes": 2231174,
+   "real": 1044216,
+   "verified": false
+  }
+ },
+ "books_bpc": 2.2894
+}

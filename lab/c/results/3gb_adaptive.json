@@ -1,0 +1,72 @@
+{
+ "table": "3gb",
+ "mode": "adaptive",
+ "groups": {
+  "edge": {
+   "n": 6,
+   "identical": 6,
+   "py_missing": 0,
+   "roundtrip": 6,
+   "raw": 4104,
+   "out": 4098,
+   "enc_s": 0.003463,
+   "dec_s": 0.0031390000000000003,
+   "fail": []
+  },
+  "snip1000": {
+   "n": 50,
+   "identical": 50,
+   "py_missing": 0,
+   "roundtrip": 50,
+   "raw": 50244,
+   "out": 11935,
+   "enc_s": 0.08926900000000003,
+   "dec_s": 0.13820700000000002,
+   "fail": []
+  },
+  "snip3000": {
+   "n": 50,
+   "identical": 50,
+   "py_missing": 0,
+   "roundtrip": 50,
+   "raw": 150868,
+   "out": 34706,
+   "enc_s": 0.18671700000000005,
+   "dec_s": 0.26420200000000005,
+   "fail": []
+  },
+  "snip10000": {
+   "n": 50,
+   "identical": 50,
+   "py_missing": 0,
+   "roundtrip": 50,
+   "raw": 502842,
+   "out": 113018,
+   "enc_s": 0.529764,
+   "dec_s": 0.80498,
+   "fail": []
+  },
+  "snip30000": {
+   "n": 50,
+   "identical": 50,
+   "py_missing": 0,
+   "roundtrip": 50,
+   "raw": 1509031,
+   "out": 333598,
+   "enc_s": 1.5738389999999998,
+   "dec_s": 2.3757760000000006,
+   "fail": []
+  },
+  "book": {
+   "n": 10,
+   "identical": 10,
+   "py_missing": 0,
+   "roundtrip": 10,
+   "raw": 12186248,
+   "out": 2673859,
+   "enc_s": 24.821240999999997,
+   "dec_s": 29.407660999999997,
+   "fail": []
+  }
+ }
+}

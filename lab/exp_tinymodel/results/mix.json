@@ -1,0 +1,128 @@
+{
+ "1m": {
+  "1000": {
+   "table": 275.8,
+   "model": 305.3,
+   "best_of_doc": 275.3,
+   "switch_16": 259.5,
+   "switch_64": 262.7,
+   "switch_256": 267.5,
+   "switch_1024": 275.4,
+   "oracle_per_token": 233.3
+  },
+  "3000": {
+   "table": 792.9,
+   "model": 811.5,
+   "best_of_doc": 789.0,
+   "switch_16": 739.0,
+   "switch_64": 752.3,
+   "switch_256": 764.5,
+   "switch_1024": 775.2,
+   "oracle_per_token": 657.4
+  },
+  "10000": {
+   "table": 2551.7,
+   "model": 2576.5,
+   "best_of_doc": 2519.9,
+   "switch_16": 2382.7,
+   "switch_64": 2429.2,
+   "switch_256": 2468.4,
+   "switch_1024": 2491.2,
+   "oracle_per_token": 2110.3
+  },
+  "30000": {
+   "table": 7483.9,
+   "model": 7597.2,
+   "best_of_doc": 7378.9,
+   "switch_16": 7006.6,
+   "switch_64": 7151.5,
+   "switch_256": 7262.1,
+   "switch_1024": 7321.8,
+   "oracle_per_token": 6196.7
+  }
+ },
+ "5m": {
+  "1000": {
+   "table": 275.8,
+   "model": 255.6,
+   "best_of_doc": 255.6,
+   "switch_16": 249.3,
+   "switch_64": 252.4,
+   "switch_256": 255.1,
+   "switch_1024": 255.8,
+   "oracle_per_token": 224.3
+  },
+  "3000": {
+   "table": 792.9,
+   "model": 744.2,
+   "best_of_doc": 743.0,
+   "switch_16": 717.1,
+   "switch_64": 729.1,
+   "switch_256": 738.3,
+   "switch_1024": 741.7,
+   "oracle_per_token": 640.6
+  },
+  "10000": {
+   "table": 2551.7,
+   "model": 2445.7,
+   "best_of_doc": 2418.2,
+   "switch_16": 2320.7,
+   "switch_64": 2362.1,
+   "switch_256": 2394.9,
+   "switch_1024": 2406.5,
+   "oracle_per_token": 2065.6
+  },
+  "30000": {
+   "table": 7483.9,
+   "model": 7285.2,
+   "best_of_doc": 7144.9,
+   "switch_16": 6833.2,
+   "switch_64": 6965.1,
+   "switch_256": 7066.0,
+   "switch_1024": 7110.0,
+   "oracle_per_token": 6070.6
+  }
+ },
+ "20m": {
+  "1000": {
+   "table": 275.8,
+   "model": 238.3,
+   "best_of_doc": 238.5,
+   "switch_16": 236.1,
+   "switch_64": 237.5,
+   "switch_256": 238.4,
+   "switch_1024": 238.6,
+   "oracle_per_token": 213.9
+  },
+  "3000": {
+   "table": 792.9,
+   "model": 687.7,
+   "best_of_doc": 687.8,
+   "switch_16": 677.9,
+   "switch_64": 684.4,
+   "switch_256": 687.4,
+   "switch_1024": 688.0,
+   "oracle_per_token": 609.5
+  },
+  "10000": {
+   "table": 2551.7,
+   "model": 2259.9,
+   "best_of_doc": 2260.0,
+   "switch_16": 2201.9,
+   "switch_64": 2230.5,
+   "switch_256": 2250.1,
+   "switch_1024": 2255.5,
+   "oracle_per_token": 1967.6
+  },
+  "30000": {
+   "table": 7483.9,
+   "model": 6722.0,
+   "best_of_doc": 6717.3,
+   "switch_16": 6494.0,
+   "switch_64": 6597.0,
+   "switch_256": 6672.5,
+   "switch_1024": 6698.8,
+   "oracle_per_token": 5782.2
+  }
+ }
+}

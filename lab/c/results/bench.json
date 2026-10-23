@@ -1,0 +1,434 @@
+{
+ "py": {
+  "v1": {
+   "load_s": 0.5611550807952881,
+   "static_decode_sample": {
+    "files": [
+     "snip_30000_10_0",
+     "snip_30000_10_1",
+     "snip_30000_10_2",
+     "snip_30000_10_3",
+     "snip_30000_10_4",
+     "snip_30000_46_0",
+     "snip_30000_46_1",
+     "snip_30000_46_2",
+     "snip_30000_46_3",
+     "snip_30000_46_4",
+     "book_1952"
+    ],
+    "raw": 331993,
+    "dec_s": 13.707762241363525,
+    "dec_MBps": 0.024219343329300137
+   },
+   "static_encode_book": {
+    "raw": 12186248,
+    "enc_s": 211.707,
+    "enc_MBps": 0.05756185671706652
+   },
+   "static_encode_snip30000": {
+    "raw": 1509031,
+    "enc_s": 56.1846,
+    "enc_MBps": 0.026858445196726505
+   },
+   "static_encode_snip1000": {
+    "raw": 50244,
+    "enc_s": 1.4509,
+    "enc_MBps": 0.03462954028534013
+   },
+   "adaptive_decode_sample": {
+    "files": [
+     "snip_30000_10_0",
+     "snip_30000_10_1",
+     "snip_30000_10_2",
+     "snip_30000_10_3",
+     "snip_30000_10_4",
+     "snip_30000_46_0",
+     "snip_30000_46_1",
+     "snip_30000_46_2",
+     "snip_30000_46_3",
+     "snip_30000_46_4",
+     "book_1952"
+    ],
+    "raw": 331993,
+    "dec_s": 11.45582103729248,
+    "dec_MBps": 0.028980288616525445
+   },
+   "adaptive_encode_book": {
+    "raw": 12186248,
+    "enc_s": 396.7128,
+    "enc_MBps": 0.03071806102550762
+   },
+   "adaptive_encode_snip30000": {
+    "raw": 1509031,
+    "enc_s": 44.4318,
+    "enc_MBps": 0.03396285993365112
+   },
+   "adaptive_encode_snip1000": {
+    "raw": 50244,
+    "enc_s": 1.1882,
+    "enc_MBps": 0.04228581046961791
+   },
+   "peak_rss_mb": 550.17472
+  },
+  "3gb": {
+   "load_s": 7.4673168659210205,
+   "static_decode_sample": {
+    "files": [
+     "snip_30000_10_0",
+     "snip_30000_10_1",
+     "snip_30000_10_2",
+     "snip_30000_10_3",
+     "snip_30000_10_4",
+     "snip_30000_46_0",
+     "snip_30000_46_1",
+     "snip_30000_46_2",
+     "snip_30000_46_3",
+     "snip_30000_46_4",
+     "book_1952"
+    ],
+    "raw": 331993,
+    "dec_s": 30.39298677444458,
+    "dec_MBps": 0.01092334236394136
+   },
+   "static_encode_book": {
+    "raw": 12186248,
+    "enc_s": 981.5131,
+    "enc_MBps": 0.01241577723211234
+   },
+   "static_encode_snip30000": {
+    "raw": 1509031,
+    "enc_s": 207.205,
+    "enc_MBps": 0.0072827924036582125
+   },
+   "static_encode_snip1000": {
+    "raw": 50244,
+    "enc_s": 8.8728,
+    "enc_MBps": 0.005662699486069786
+   },
+   "adaptive_decode_sample": {
+    "files": [
+     "snip_30000_10_0",
+     "snip_30000_10_1",
+     "snip_30000_10_2",
+     "snip_30000_10_3",
+     "snip_30000_10_4",
+     "snip_30000_46_0",
+     "snip_30000_46_1",
+     "snip_30000_46_2",
+     "snip_30000_46_3",
+     "snip_30000_46_4",
+     "book_1952"
+    ],
+    "raw": 331993,
+    "dec_s": 20.593315601348877,
+    "dec_MBps": 0.01612139620577923
+   },
+   "adaptive_encode_book": {
+    "raw": 12186248,
+    "enc_s": 1181.9549,
+    "enc_MBps": 0.010310247878324293
+   },
+   "adaptive_encode_snip30000": {
+    "raw": 1509031,
+    "enc_s": 171.1703,
+    "enc_MBps": 0.008815962815979175
+   },
+   "adaptive_encode_snip1000": {
+    "raw": 50244,
+    "enc_s": 7.7459,
+    "enc_MBps": 0.006486528356937219
+   },
+   "peak_rss_mb": 2567.634944
+  }
+ },
+ "c": {
+  "v1": {
+   "info": "fingerprint 1cd43ea2 V 136525 b 18 total0 23644058 ctx1 136525 ent1 2448991 ctx2 2448991 ent2 7909452 file 237.8 MB, open+mmap 0.230 ms",
+   "one_1kb_process_wall_s": 0.015986919403076172,
+   "one_1kb_peak_rss_mb": 23.707648,
+   "static_snip1000": {
+    "raw": 50244,
+    "first": {
+     "enc_s": 0.924334,
+     "dec_s": 0.04014,
+     "enc_MBps": 0.05435697485973685,
+     "dec_MBps": 1.2517189835575484,
+     "peak_rss_enc_mb": 182.878208,
+     "peak_rss_dec_mb": 180.486144,
+     "footprint_enc_mb": 4.047424,
+     "footprint_dec_mb": 4.03104
+    },
+    "warm": {
+     "enc_s": 0.027469,
+     "dec_s": 0.031925,
+     "enc_MBps": 1.8291164585532782,
+     "dec_MBps": 1.5738136256851996,
+     "peak_rss_enc_mb": 182.730752,
+     "peak_rss_dec_mb": 180.38784,
+     "footprint_enc_mb": 3.899968,
+     "footprint_dec_mb": 3.932736
+    }
+   },
+   "static_snip30000": {
+    "raw": 1509031,
+    "first": {
+     "enc_s": 0.55814,
+     "dec_s": 0.562088,
+     "enc_MBps": 2.7036782886014263,
+     "dec_MBps": 2.6846881627076185,
+     "peak_rss_enc_mb": 199.933952,
+     "peak_rss_dec_mb": 197.640192,
+     "footprint_enc_mb": 4.899392,
+     "footprint_dec_mb": 4.653632
+    },
+    "warm": {
+     "enc_s": 0.397766,
+     "dec_s": 0.579655,
+     "enc_MBps": 3.793765681330229,
+     "dec_MBps": 2.603326116396822,
+     "peak_rss_enc_mb": 200.671232,
+     "peak_rss_dec_mb": 198.279168,
+     "footprint_enc_mb": 5.636672,
+     "footprint_dec_mb": 5.292608
+    }
+   },
+   "static_book": {
+    "raw": 12186248,
+    "first": {
+     "enc_s": 3.072863,
+     "dec_s": 4.3332619999999995,
+     "enc_MBps": 3.9657635241141573,
+     "dec_MBps": 2.812257371005954,
+     "peak_rss_enc_mb": 211.091456,
+     "peak_rss_dec_mb": 205.176832,
+     "footprint_enc_mb": 15.712832,
+     "footprint_dec_mb": 11.911768
+    },
+    "warm": {
+     "enc_s": 3.086625,
+     "dec_s": 4.325547,
+     "enc_MBps": 3.948081804559997,
+     "dec_MBps": 2.817273283587024,
+     "peak_rss_enc_mb": 209.895424,
+     "peak_rss_dec_mb": 203.40736,
+     "footprint_enc_mb": 14.5168,
+     "footprint_dec_mb": 10.125888
+    }
+   },
+   "adaptive_snip1000": {
+    "raw": 50244,
+    "first": {
+     "enc_s": 0.058824,
+     "dec_s": 0.067428,
+     "enc_MBps": 0.854141166870665,
+     "dec_MBps": 0.7451503826303613,
+     "peak_rss_enc_mb": 195.3792,
+     "peak_rss_dec_mb": 193.052672,
+     "footprint_enc_mb": 16.417344,
+     "footprint_dec_mb": 15.761984
+    },
+    "warm": {
+     "enc_s": 0.059703,
+     "dec_s": 0.059867000000000004,
+     "enc_MBps": 0.8415657504648008,
+     "dec_MBps": 0.8392603604656989,
+     "peak_rss_enc_mb": 194.789376,
+     "peak_rss_dec_mb": 192.9216,
+     "footprint_enc_mb": 15.82752,
+     "footprint_dec_mb": 15.630912
+    }
+   },
+   "adaptive_snip30000": {
+    "raw": 1509031,
+    "first": {
+     "enc_s": 0.95012,
+     "dec_s": 1.17684,
+     "enc_MBps": 1.5882530627710185,
+     "dec_MBps": 1.2822737160531592,
+     "peak_rss_enc_mb": 214.450176,
+     "peak_rss_dec_mb": 212.647936,
+     "footprint_enc_mb": 19.399232,
+     "footprint_dec_mb": 19.612224
+    },
+    "warm": {
+     "enc_s": 0.995397,
+     "dec_s": 1.13361,
+     "enc_MBps": 1.5160091903029647,
+     "dec_MBps": 1.3311729783611648,
+     "peak_rss_enc_mb": 214.728704,
+     "peak_rss_dec_mb": 212.533248,
+     "footprint_enc_mb": 19.67776,
+     "footprint_dec_mb": 19.497536
+    }
+   },
+   "adaptive_book": {
+    "raw": 12186248,
+    "first": {
+     "enc_s": 17.291980000000002,
+     "dec_s": 18.514134000000002,
+     "enc_MBps": 0.7047341021675944,
+     "dec_MBps": 0.6582132331979449,
+     "peak_rss_enc_mb": 517.275648,
+     "peak_rss_dec_mb": 505.544704,
+     "footprint_enc_mb": 268.272504,
+     "footprint_dec_mb": 258.09804
+    },
+    "warm": {
+     "enc_s": 17.44522,
+     "dec_s": 19.363662,
+     "enc_MBps": 0.6985436698419396,
+     "dec_MBps": 0.629335917968409,
+     "peak_rss_enc_mb": 514.981888,
+     "peak_rss_dec_mb": 509.526016,
+     "footprint_enc_mb": 265.978744,
+     "footprint_dec_mb": 262.357856
+    }
+   },
+   "one_1kb_peak_footprint_mb": 3.70336
+  },
+  "3gb": {
+   "info": "fingerprint 9330c838 V 1064949 b 21 total0 775700609 ctx1 1064949 ent1 33670842 ctx2 33670842 ent2 159217079 file 4095.8 MB, open+mmap 0.097 ms",
+   "one_1kb_process_wall_s": 0.02022695541381836,
+   "one_1kb_peak_rss_mb": 32.948224,
+   "static_snip1000": {
+    "raw": 50244,
+    "first": {
+     "enc_s": 1.023775,
+     "dec_s": 0.149541,
+     "enc_MBps": 0.04907718981221459,
+     "dec_MBps": 0.33598812365839464,
+     "peak_rss_enc_mb": 629.1456,
+     "peak_rss_dec_mb": 617.201664,
+     "footprint_enc_mb": 11.619136,
+     "footprint_dec_mb": 9.669392
+    },
+    "warm": {
+     "enc_s": 0.064899,
+     "dec_s": 0.070398,
+     "enc_MBps": 0.7741875837840336,
+     "dec_MBps": 0.7137134577686866,
+     "peak_rss_enc_mb": 628.736,
+     "peak_rss_dec_mb": 618.9056,
+     "footprint_enc_mb": 11.209536,
+     "footprint_dec_mb": 11.389736
+    }
+   },
+   "static_snip30000": {
+    "raw": 1509031,
+    "first": {
+     "enc_s": 12.329455,
+     "dec_s": 1.3868989999999999,
+     "enc_MBps": 0.12239235229781041,
+     "dec_MBps": 1.0880612070525684,
+     "peak_rss_enc_mb": 2834.710528,
+     "peak_rss_dec_mb": 2838.396928,
+     "footprint_enc_mb": 23.939928,
+     "footprint_dec_mb": 25.496384
+    },
+    "warm": {
+     "enc_s": 0.840192,
+     "dec_s": 0.924929,
+     "enc_MBps": 1.7960549493449116,
+     "dec_MBps": 1.6315100942883183,
+     "peak_rss_enc_mb": 2845.16352,
+     "peak_rss_dec_mb": 2842.148864,
+     "footprint_enc_mb": 28.232536,
+     "footprint_dec_mb": 28.904256
+    }
+   },
+   "static_book": {
+    "raw": 12186248,
+    "first": {
+     "enc_s": 9.340719,
+     "dec_s": 6.245499,
+     "enc_MBps": 1.3046370413241208,
+     "dec_MBps": 1.951204859691756,
+     "peak_rss_enc_mb": 3315.023872,
+     "peak_rss_dec_mb": 3300.540416,
+     "footprint_enc_mb": 35.588952,
+     "footprint_dec_mb": 33.737536
+    },
+    "warm": {
+     "enc_s": 5.149438,
+     "dec_s": 6.263006,
+     "enc_MBps": 2.366519996939472,
+     "dec_MBps": 1.9457506507258657,
+     "peak_rss_enc_mb": 3310.829568,
+     "peak_rss_dec_mb": 3301.818368,
+     "footprint_enc_mb": 36.342616,
+     "footprint_dec_mb": 35.015488
+    }
+   },
+   "adaptive_snip1000": {
+    "raw": 50244,
+    "first": {
+     "enc_s": 0.12070499999999999,
+     "dec_s": 0.132715,
+     "enc_MBps": 0.4162545047843917,
+     "dec_MBps": 0.37858569114267415,
+     "peak_rss_enc_mb": 687.259648,
+     "peak_rss_dec_mb": 692.944896,
+     "footprint_enc_mb": 37.34204,
+     "footprint_dec_mb": 38.783808
+    },
+    "warm": {
+     "enc_s": 0.110749,
+     "dec_s": 0.120366,
+     "enc_MBps": 0.4536745252778806,
+     "dec_MBps": 0.41742684811325453,
+     "peak_rss_enc_mb": 687.407104,
+     "peak_rss_dec_mb": 691.339264,
+     "footprint_enc_mb": 37.489496,
+     "footprint_dec_mb": 37.161768
+    }
+   },
+   "adaptive_snip30000": {
+    "raw": 1509031,
+    "first": {
+     "enc_s": 1.500301,
+     "dec_s": 1.704118,
+     "enc_MBps": 1.0058188323543076,
+     "dec_MBps": 0.8855202515318775,
+     "peak_rss_enc_mb": 2881.29024,
+     "peak_rss_dec_mb": 2885.517312,
+     "footprint_enc_mb": 56.74072,
+     "footprint_dec_mb": 58.428248
+    },
+    "warm": {
+     "enc_s": 1.486332,
+     "dec_s": 1.706462,
+     "enc_MBps": 1.0152718235226046,
+     "dec_MBps": 0.8843038989441312,
+     "peak_rss_enc_mb": 2881.142784,
+     "peak_rss_dec_mb": 2883.436544,
+     "footprint_enc_mb": 56.576856,
+     "footprint_dec_mb": 56.34748
+    }
+   },
+   "adaptive_book": {
+    "raw": 12186248,
+    "first": {
+     "enc_s": 22.753537,
+     "dec_s": 24.010293,
+     "enc_MBps": 0.5355759853951497,
+     "dec_MBps": 0.5075426609746079,
+     "peak_rss_enc_mb": 3643.867136,
+     "peak_rss_dec_mb": 3629.056,
+     "footprint_enc_mb": 311.463056,
+     "footprint_dec_mb": 304.45068
+    },
+    "warm": {
+     "enc_s": 39.072669,
+     "dec_s": 104.871286,
+     "enc_MBps": 0.31188675644348746,
+     "dec_MBps": 0.11620195064643339,
+     "peak_rss_enc_mb": 3589.505024,
+     "peak_rss_dec_mb": 2476.60544,
+     "footprint_enc_mb": 360.909968,
+     "footprint_dec_mb": 346.918008
+    }
+   },
+   "one_1kb_peak_footprint_mb": 8.407728
+  }
+ }
+}

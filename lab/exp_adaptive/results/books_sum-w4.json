@@ -1,0 +1,65 @@
+{
+ "config": "sum-w4",
+ "books": {
+  "10": {
+   "raw": 4336576,
+   "real": 936432,
+   "verified": false,
+   "seconds": 85.17535710334778
+  },
+  "46": {
+   "raw": 158416,
+   "real": 37421,
+   "verified": true,
+   "seconds": 5.352374792098999
+  },
+  "145": {
+   "raw": 1812691,
+   "real": 390461,
+   "verified": false,
+   "seconds": 32.572036266326904
+  },
+  "408": {
+   "raw": 402253,
+   "real": 98788,
+   "verified": true,
+   "seconds": 20.837547063827515
+  },
+  "1232": {
+   "raw": 283426,
+   "real": 63113,
+   "verified": true,
+   "seconds": 10.906012773513794
+  },
+  "1952": {
+   "raw": 31904,
+   "real": 7264,
+   "verified": true,
+   "seconds": 0.8882789611816406
+  },
+  "2701": {
+   "raw": 1234542,
+   "real": 313560,
+   "verified": false,
+   "seconds": 33.09524393081665
+  },
+  "5197": {
+   "raw": 1256025,
+   "real": 272025,
+   "verified": false,
+   "seconds": 20.98417901992798
+  },
+  "20203": {
+   "raw": 439241,
+   "real": 106258,
+   "verified": true,
+   "seconds": 18.25277304649353
+  },
+  "37683": {
+   "raw": 2231174,
+   "real": 740568,
+   "verified": false,
+   "seconds": 113.73722696304321
+  }
+ }
+}

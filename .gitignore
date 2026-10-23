@@ -1,0 +1,18 @@
+# Data and generated tables are rebuilt by scripts (see README.md):
+#   python3 lab/fetch_corpus.py && python3 lab/codec.py build
+corpus/
+tables/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# macOS
+.DS_Store
+
+# Rebuildable experiment artefacts
+lab/c/data/
+lab/c/steno
+*.o
+lab/*/results/table_tokens*.json

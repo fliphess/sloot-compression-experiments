@@ -1,0 +1,105 @@
+{
+ "table": "exp_table_3gb_p2",
+ "config": "d3-sum-w32",
+ "set": "test",
+ "table_mb": 162.3,
+ "vocab": 1064949,
+ "fingerprint": "b6e6ad2f",
+ "short": {
+  "1000": {
+   "avg_bytes": 243.8,
+   "bpc": 1.9409282700421941,
+   "secs": 3
+  },
+  "3000": {
+   "avg_bytes": 708.34,
+   "bpc": 1.87803908052072,
+   "secs": 9
+  },
+  "10000": {
+   "avg_bytes": 2308.5,
+   "bpc": 1.8363621177228633,
+   "secs": 30
+  },
+  "30000": {
+   "avg_bytes": 6807.44,
+   "bpc": 1.8044533213698062,
+   "secs": 90
+  }
+ },
+ "books": {
+  "10": {
+   "bytes": 4336576,
+   "real": 876203,
+   "verified": false,
+   "secs": 92
+  },
+  "46": {
+   "bytes": 158416,
+   "real": 34001,
+   "verified": true,
+   "secs": 6
+  },
+  "145": {
+   "bytes": 1812691,
+   "real": 368697,
+   "verified": false,
+   "secs": 33
+  },
+  "408": {
+   "bytes": 402253,
+   "real": 87717,
+   "verified": true,
+   "secs": 19
+  },
+  "1232": {
+   "bytes": 283426,
+   "real": 57437,
+   "verified": true,
+   "secs": 13
+  },
+  "1952": {
+   "bytes": 31904,
+   "real": 6705,
+   "verified": true,
+   "secs": 1
+  },
+  "2701": {
+   "bytes": 1234542,
+   "real": 293014,
+   "verified": false,
+   "secs": 35
+  },
+  "5197": {
+   "bytes": 1256025,
+   "real": 247362,
+   "verified": false,
+   "secs": 24
+  },
+  "20203": {
+   "bytes": 439241,
+   "real": 94218,
+   "verified": true,
+   "secs": 21
+  },
+  "37683": {
+   "bytes": 2231174,
+   "real": 673377,
+   "verified": false,
+   "secs": 203
+  }
+ },
+ "book_ids": [
+  "10",
+  "46",
+  "145",
+  "408",
+  "1232",
+  "1952",
+  "2701",
+  "5197",
+  "20203",
+  "37683"
+ ],
+ "done": true
+}

@@ -1,0 +1,106 @@
+{
+ "table": "tables/exp_table_3gb.npz",
+ "fingerprint": "9330c838",
+ "load_s": 7,
+ "short": {
+  "1000": {
+   "docs": 50,
+   "avg_bytes": 242.3,
+   "bpc": 1.929,
+   "secs_per_doc": 0.2
+  },
+  "3000": {
+   "docs": 50,
+   "avg_bytes": 714.1,
+   "bpc": 1.8934,
+   "secs_per_doc": 0.58
+  },
+  "10000": {
+   "docs": 50,
+   "avg_bytes": 2354.3,
+   "bpc": 1.8728,
+   "secs_per_doc": 1.63
+  },
+  "30000": {
+   "docs": 50,
+   "avg_bytes": 6992.2,
+   "bpc": 1.8534,
+   "secs_per_doc": 5.42
+  }
+ },
+ "books": [
+  {
+   "book": "10",
+   "bytes": 4336576,
+   "real": 1041598,
+   "verified": false,
+   "enc_s": 235.4
+  },
+  {
+   "book": "46",
+   "bytes": 158416,
+   "real": 34522,
+   "verified": true,
+   "enc_s": 12.7
+  },
+  {
+   "book": "145",
+   "bytes": 1812691,
+   "real": 370121,
+   "verified": false,
+   "enc_s": 98.5
+  },
+  {
+   "book": "408",
+   "bytes": 402253,
+   "real": 85558,
+   "verified": true,
+   "enc_s": 21.4
+  },
+  {
+   "book": "1232",
+   "bytes": 283426,
+   "real": 57356,
+   "verified": true,
+   "enc_s": 18.5
+  },
+  {
+   "book": "1952",
+   "bytes": 31904,
+   "real": 6672,
+   "verified": true,
+   "enc_s": 1.0
+  },
+  {
+   "book": "2701",
+   "bytes": 1234542,
+   "real": 290648,
+   "verified": false,
+   "enc_s": 97.1
+  },
+  {
+   "book": "5197",
+   "bytes": 1256025,
+   "real": 244426,
+   "verified": false,
+   "enc_s": 56.4
+  },
+  {
+   "book": "20203",
+   "bytes": 439241,
+   "real": 93590,
+   "verified": true,
+   "enc_s": 25.5
+  },
+  {
+   "book": "37683",
+   "bytes": 2231174,
+   "real": 851703,
+   "verified": false,
+   "enc_s": 490.5
+  }
+ ],
+ "books_total_bpc": 2.0195,
+ "peak_rss_gb_main": 4.75,
+ "total_s": 1092
+}
