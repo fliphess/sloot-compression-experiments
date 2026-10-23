@@ -1,0 +1,56 @@
+{
+ "wiki 1000": {
+  "old static": 241.53333333333333,
+  "new static": 238.3,
+  "old adaptive": 229.43333333333334,
+  "new adaptive": 227.86666666666667
+ },
+ "code 1000": {
+  "old static": 257.3,
+  "new static": 268.6666666666667,
+  "old adaptive": 220.3,
+  "new adaptive": 230.5
+ },
+ "books 1000": {
+  "old static": 259.46666666666664,
+  "new static": 259.3333333333333,
+  "old adaptive": 256.4,
+  "new adaptive": 256.5
+ },
+ "wiki 3000": {
+  "old static": 734.6,
+  "new static": 726.7,
+  "old adaptive": 678.6666666666666,
+  "new adaptive": 675.5333333333333
+ },
+ "code 3000": {
+  "old static": 760.5666666666667,
+  "new static": 794.5666666666667,
+  "old adaptive": 638.1,
+  "new adaptive": 665.1
+ },
+ "books 3000": {
+  "old static": 748.3,
+  "new static": 749.2,
+  "old adaptive": 731.5333333333333,
+  "new adaptive": 731.8
+ },
+ "wiki 10000": {
+  "old static": 2429.8,
+  "new static": 2400.9,
+  "old adaptive": 2195.133333333333,
+  "new adaptive": 2183.7
+ },
+ "code 10000": {
+  "old static": 2520.733333333333,
+  "new static": 2634.0,
+  "old adaptive": 1979.9333333333334,
+  "new adaptive": 2069.1
+ },
+ "books 10000": {
+  "old static": 2473.0666666666666,
+  "new static": 2475.766666666667,
+  "old adaptive": 2382.4666666666667,
+  "new adaptive": 2383.733333333333
+ }
+}

@@ -275,7 +275,8 @@ Validation-set caveat: the 10 fresh books are checked against test-book leakage 
 | R2-2 mix (detached) | switching estimate model × **3 GB table + adaptive**; first with E10's 20M, then automatically with the R2-1 model | `lab/round2/mix_big.py`, `run_mix.sh`, `logs/mix.log`, `results/mix_*.json` | first part done |
 | E11 (agent) | **C port** of codec v1 + adaptive d3-sum-w32: mmap table format, bit-identical to Python, speed | `lab/c/RESULTS.md` | **done**, see E11 below |
 | E12 (agent) | **integer-only inference** of the byte transformer (numpy), integer frequency rule, real files + round trips, determinism checks | `lab/round2/intmodel/RESULTS.md` | agent stopped for token budget at ~09:30, but its runs had finished: **done** for 1m/5m/20m; the 3 GB model is running (main session) |
-| R3-1 train (detached, GPU) | 20M trained longer: 54,000 steps = ~885 MB of the 3 GB corpus, ~21 h | `lab/round2/logs/20m_long.log`, `tables/round2_20m_long.pt` | running since 2026-10-23 17:20 |
+| R3-1 train (detached, GPU) | 20M trained longer on books only (54,000 steps) | `logs/20m_long_stopped.log` | **stopped** at step ~1,000 in favour of R3-2 (E13 showed domain coverage matters more) |
+| R3-2 train (detached, GPU) | 20M on a **domain mix**: books 60% / Wikipedia 25% / code 15%, 54,000 steps, ~21 h | `lab/round2/train_mixed.py`, `logs/20m_mixed.log`, `tables/round2_20m_mixed.pt` | running since 2026-10-23 ~18:40 |
 
 ### R2-2 first result: 20M model (E10, 85 MB) × 3 GB table + adaptive (ideal bits + 7 B container, achievable switching)
 | size | table (3 GB + adaptive) | model (20M) | **switch per 16 B** | oracle per token (not achievable) |
@@ -328,10 +329,42 @@ a backend that doesn't reproduce exactly is refused. Exported files are ~19.9 MB
 | 1m | | 823.6 B | 2,617 | 7,721 | +1.5% | 200/200 |
 | 5m | 256.4 B | 747.0 | 2,456 | 7,317 | +0.4% | 200/200 |
 | **20m (E10)** | **238.5 B** | **688.2** | **2,262** | **6,729** | **+0.07-0.11%** | **200/200** |
-| 20m_big (3 GB) | running (first snippets ~204 B per 1 KB, round trips OK) | | | | | |
+| **20m_big (3 GB)** | **207.2 B** | **590.0** | **1,926.6** | **5,722.3** | **+0.19-0.25%** | **200/200** |
 
 Determinism: identical output across int/f32/f64 backends and thread settings (subsets, see RESULTS.md). **Speed is the new
 bottleneck**: numpy runs at ~0.5 KB/s encode and 0.1-0.3 KB/s decode (20M); the model needs a C/NEON port.
+
+### E13: does it generalise beyond Gutenberg? (`lab/round2/domains.py`, `mixed_table.py`)
+30 snippets per size per domain, never in any training data. Wiki = raw enwik8 dump with markup, from enwik8[90 MB:];
+code = CPython 3.15.0 top-level `Lib/*.py`. Real bytes (C codec, round trips checked) unless marked *ideal*.
+
+| 1 KB / 10 KB per doc | gzip | brotli | v1 + adaptive | 3 GB books + adaptive | **mixed + adaptive** | 20M, books 85 MB (*ideal*) | 20M, books 3 GB (*ideal*) |
+|---|---|---|---|---|---|---|---|
+| books | 565 / 4,410 | 462 / 3,669 | 254 / 2,345 | 224 / 2,100 | 256 / 2,382 | 220 / 2,077 | **197 / 1,819** |
+| wiki | 538 / 4,201 | 406 / 3,245 | 363 / 3,412 | 321 / 3,062 | **229 / 2,195** | 493 / 5,029 | 278 / 2,749 |
+| code | 421 / 2,936 | 359 / 2,531 | 384 / 3,017 | 370 / 2,989 | **220 / 1,980** | 407 / 3,930 | 301 / 2,796 |
+
+**Mixed table** = the same 85 MB of books as v1 + enwik8[0:85 MB] + 35 MB of CPython `Lib/<subdir>` code (67 MB npz, 310K words,
+fingerprint `bc33e372`, built in 62 s).
+- **Tables and models are domain-bound.** The books-only static tables lose to gzip on code, and the books-only 20M model loses
+  to gzip on Wikipedia.
+- **Coverage beats volume:** the 67 MB mixed table beats the 545 MB books-only table by -29% on wiki and -40% on code, while books stay level
+  with v1 (256 vs 254 B). It's far ahead of brotli everywhere (code: 220 vs 359 B).
+- Caveat: the code test files come from the same project as the code training files (different files, same style), so the code gain is optimistic.
+  A fair code test needs another project.
+- More (and more varied) books make the model much more general: the 3 GB-books model beats brotli in every domain, though it never saw
+  Wikipedia or code. But domain data still wins outside books (mixed table: wiki 229 vs 278, code 220 vs 301 B).
+- Consequence: the long model run was switched from books-only to a domain mix (R3-2).
+
+**Milestone (2026-10-23):** 20m_big as an integer-only model gives **real, round-trip-verified files of 207.2 B per 1 KB: 2.84× smaller than
+gzip (588 B)** and 13% smaller than the best table (239 B). Speed in numpy: ~0.4-1.1 KB/s encode, ~0.12-0.21 KB/s decode.
+
+### Tricks round (2026-10-23 evening): routing, match model, code tokenizer
+| trick | what | result | verdict |
+|---|---|---|---|
+| **1. table routing** (`routing.py`) | the encoder tries every table and keeps the smallest; the fingerprint in the header names it, so it costs 0 extra bytes | picks the right table for 30/30 books and code and 59/60 wiki; result = best of both: books 224, wiki 229, code 220 B (1 KB) | ✅ adopt: "a set of tables, chosen per file" |
+| **2. match model** (`match_model.py`) | PAQ-style match model (hash of 6 bytes, follow the earlier occurrence) + an APM table (match length × model probability), next to the 20M model; ideal bits | code -5% (1 KB) / **-17%** (10 KB), wiki -3% / -8%, books +0.8% / -0.3%; matches cover 39-56% of code bytes | ✅ adopt, with a header flag (on/off) so books never lose; full books pending |
+| **3. code-aware tokenizer** (`code_tokens.py`) | identifiers with `_`/digits, digit runs and indentation runs as one token; mixed table rebuilt | code **+4.5% worse** (220 → 230 B), wiki -0.5%, books equal | ❌ hand-written splitting loses: whole identifiers are often unique (spelled), while the old pieces are reusable. A tokenizer change should be *learned* (BPE) |
 
 ## Reproducibility (2026-10-22)
 

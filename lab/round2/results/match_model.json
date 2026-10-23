@@ -1,0 +1,72 @@
+{
+ "wiki 1000": {
+  "model": 277.8666666666667,
+  "model + match": 268.93333333333334,
+  "model bpc": 2.163050806996363,
+  "model + match bpc": 2.090717517664614,
+  "match coverage": 0.18036666666666668
+ },
+ "code 1000": {
+  "model": 301.2,
+  "model + match": 287.5,
+  "model bpc": 2.34933487692012,
+  "model + match bpc": 2.23986451899533,
+  "match coverage": 0.388
+ },
+ "books 1000": {
+  "model": 196.66666666666666,
+  "model + match": 198.33333333333334,
+  "model bpc": 1.5054388977644149,
+  "model + match bpc": 1.5192760304744493,
+  "match coverage": 0.08672589842195995
+ },
+ "wiki 3000": {
+  "model": 811.3,
+  "model + match": 771.1333333333333,
+  "model bpc": 2.143440669574063,
+  "model + match bpc": 2.0362965439223224,
+  "match coverage": 0.2429888888888889
+ },
+ "code 3000": {
+  "model": 862.9666666666667,
+  "model + match": 784.3,
+  "model bpc": 2.281155035636958,
+  "model + match bpc": 2.0714815856260764,
+  "match coverage": 0.45113333333333333
+ },
+ "books 3000": {
+  "model": 553.7,
+  "model + match": 557.0,
+  "model bpc": 1.4459826633746333,
+  "model + match bpc": 1.4546640967818185,
+  "match coverage": 0.15941981028016766
+ },
+ "wiki 10000": {
+  "model": 2749.1666666666665,
+  "model + match": 2517.0666666666666,
+  "model bpc": 2.193304294766062,
+  "model + match bpc": 2.0076093398051773,
+  "match coverage": 0.33062
+ },
+ "code 10000": {
+  "model": 2796.4,
+  "model + match": 2323.8,
+  "model bpc": 2.231150015797575,
+  "model + match bpc": 1.852995910972805,
+  "match coverage": 0.5586033333333333
+ },
+ "books 10000": {
+  "model": 1819.4333333333334,
+  "model + match": 1814.6,
+  "model bpc": 1.4391867096964328,
+  "model + match bpc": 1.4353403295615743,
+  "match coverage": 0.26707727134327963
+ },
+ "books \u2264500 KB (5 full)": {
+  "model": 48021.6,
+  "model + match": 47727.4,
+  "model bpc": 1.4602408862061185,
+  "model + match bpc": 1.4512899930925127,
+  "match coverage": 0.6410145676834647
+ }
+}

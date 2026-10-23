@@ -1,0 +1,119 @@
+{
+ "wiki 1000": {
+  "v1": 363.3666666666667,
+  "3gb": 320.53333333333336,
+  "mixed": 229.43333333333334,
+  "route books-only tables": 320.03333333333336,
+  "route 3gb + mixed": 228.9,
+  "route all three": 228.9,
+  "picked (all three)": {
+   "v1": 0,
+   "3gb": 1,
+   "mixed": 29
+  }
+ },
+ "code 1000": {
+  "v1": 384.3333333333333,
+  "3gb": 369.6333333333333,
+  "mixed": 220.3,
+  "route books-only tables": 369.3,
+  "route 3gb + mixed": 220.3,
+  "route all three": 220.3,
+  "picked (all three)": {
+   "v1": 0,
+   "3gb": 0,
+   "mixed": 30
+  }
+ },
+ "books 1000": {
+  "v1": 254.0,
+  "3gb": 223.73333333333332,
+  "mixed": 256.4,
+  "route books-only tables": 223.73333333333332,
+  "route 3gb + mixed": 223.73333333333332,
+  "route all three": 223.73333333333332,
+  "picked (all three)": {
+   "v1": 0,
+   "3gb": 30,
+   "mixed": 0
+  }
+ },
+ "wiki 3000": {
+  "v1": 1055.8666666666666,
+  "3gb": 936.2,
+  "mixed": 678.6666666666666,
+  "route books-only tables": 935.3666666666667,
+  "route 3gb + mixed": 678.1333333333333,
+  "route all three": 678.1333333333333,
+  "picked (all three)": {
+   "v1": 0,
+   "3gb": 1,
+   "mixed": 29
+  }
+ },
+ "code 3000": {
+  "v1": 1055.4666666666667,
+  "3gb": 1030.7,
+  "mixed": 638.1,
+  "route books-only tables": 1028.8333333333333,
+  "route 3gb + mixed": 638.1,
+  "route all three": 638.1,
+  "picked (all three)": {
+   "v1": 0,
+   "3gb": 0,
+   "mixed": 30
+  }
+ },
+ "books 3000": {
+  "v1": 722.6333333333333,
+  "3gb": 641.9666666666667,
+  "mixed": 731.5333333333333,
+  "route books-only tables": 641.9666666666667,
+  "route 3gb + mixed": 641.9666666666667,
+  "route all three": 641.9666666666667,
+  "picked (all three)": {
+   "v1": 0,
+   "3gb": 30,
+   "mixed": 0
+  }
+ },
+ "wiki 10000": {
+  "v1": 3412.1666666666665,
+  "3gb": 3062.1666666666665,
+  "mixed": 2195.133333333333,
+  "route books-only tables": 3060.633333333333,
+  "route 3gb + mixed": 2195.133333333333,
+  "route all three": 2195.133333333333,
+  "picked (all three)": {
+   "v1": 0,
+   "3gb": 0,
+   "mixed": 30
+  }
+ },
+ "code 10000": {
+  "v1": 3017.233333333333,
+  "3gb": 2989.1,
+  "mixed": 1979.9333333333334,
+  "route books-only tables": 2982.8333333333335,
+  "route 3gb + mixed": 1979.9333333333334,
+  "route all three": 1979.9333333333334,
+  "picked (all three)": {
+   "v1": 0,
+   "3gb": 0,
+   "mixed": 30
+  }
+ },
+ "books 10000": {
+  "v1": 2345.266666666667,
+  "3gb": 2100.366666666667,
+  "mixed": 2382.4666666666667,
+  "route books-only tables": 2100.366666666667,
+  "route 3gb + mixed": 2100.366666666667,
+  "route all three": 2100.366666666667,
+  "picked (all three)": {
+   "v1": 0,
+   "3gb": 30,
+   "mixed": 0
+  }
+ }
+}

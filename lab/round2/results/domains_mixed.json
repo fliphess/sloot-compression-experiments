@@ -1,0 +1,38 @@
+{
+ "wiki 1000": {
+  "mixed static": 241.53333333333333,
+  "mixed adaptive": 229.43333333333334
+ },
+ "code 1000": {
+  "mixed static": 257.3,
+  "mixed adaptive": 220.3
+ },
+ "books 1000": {
+  "mixed static": 259.46666666666664,
+  "mixed adaptive": 256.4
+ },
+ "wiki 3000": {
+  "mixed static": 734.6,
+  "mixed adaptive": 678.6666666666666
+ },
+ "code 3000": {
+  "mixed static": 760.5666666666667,
+  "mixed adaptive": 638.1
+ },
+ "books 3000": {
+  "mixed static": 748.3,
+  "mixed adaptive": 731.5333333333333
+ },
+ "wiki 10000": {
+  "mixed static": 2429.8,
+  "mixed adaptive": 2195.133333333333
+ },
+ "code 10000": {
+  "mixed static": 2520.733333333333,
+  "mixed adaptive": 1979.9333333333334
+ },
+ "books 10000": {
+  "mixed static": 2473.0666666666666,
+  "mixed adaptive": 2382.4666666666667
+ }
+}
