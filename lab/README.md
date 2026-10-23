@@ -34,7 +34,7 @@ this file is the map.
 | [`exp_tinymodel/`](exp_tinymodel/) | E10 | could a small self-trained neural model beat the table? | ⚠️ superseded by `round2/` | a 19 MB model matches the 545 MB table |
 | [`c/`](c/) | E11 | C port of the codec, bit-identical to Python | ✅ | 20-250× faster; needs a code review |
 | [`round2/`](round2/) | R2, E12, E13 | model trained on 3 GB; mixing; integer-only inference; domains; tricks | ✅ | 207 B per 1 KB (2.8× smaller than gzip) |
-| [`v2/`](v2/) | v2 | everything combined: per-file routing over tables + neural (+ match model), unique method ids | ✅ current | running |
+| [`v2/`](v2/) | v2 | everything combined: per-file routing over tables + neural (+ match model), unique method ids | ✅ current | real files vs gzip: books 2.4-2.9×, wiki 1.9-2.4×, code 1.5-1.9× smaller |
 
 ## Dependencies
 

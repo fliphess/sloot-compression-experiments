@@ -373,18 +373,17 @@ User decision: **adopt tricks 1 (routing) and 2 (match model), drop trick 3 (han
   The encoder tries every method × resource and keeps the smallest; the fingerprint names the resource (no extra bytes).
 - `neuralmatch.py`: method 5, an integer match model on top of the E12 integer neural codec (binary hit/miss with an adaptive
   integer probability, then the byte with the predicted one excluded). First test: code 1 KB 262 → 213 B (-19%), round trips OK.
-- `evaluate.py`: real bytes for all candidates on the domains set, chosen files decode-verified. Interim result (1 KB + 3 KB complete;
-  10 KB still running, ~2 h, because numpy neural decode is the bottleneck):
+- `evaluate.py`: real bytes for all candidates on the domains set (270 docs), every chosen file decoded and checked. **Complete (2026-10-23 23:40):**
 
-  | 1 KB / 3 KB | gzip | 3 GB table + ad. | mixed table + ad. | neural (20m_big) | neural + match | **v2 (best per file)** | mostly chosen |
+  | real bytes, 1 / 3 / 10 KB | gzip | 3 GB table + ad. | mixed table + ad. | neural (20m_big) | neural + match | **v2 (best per file)** | mostly chosen |
   |---|---|---|---|---|---|---|---|
-  | books | 565 / 1,480 | 224 / 641 | 256 / 732 | 197 / 555 | 199 / 558 | **197 / 554** | neural |
-  | wiki | 538 / 1,411 | 321 / 936 | 229 / 679 | 278 / 813 | 269 / 772 | **226 / 673** | mixed table |
-  | code | 421 / 1,061 | 370 / 1,031 | 220 / 638 | 302 / 865 | 288 / 786 | **219 / 638** | mixed table |
+  | books | 565 / 1,480 / 4,410 | 224 / 642 / 2,100 | 256 / 732 / 2,382 | 197 / 555 / 1,823 | 199 / 558 / 1,817 | **197 / 555 / 1,813** | neural (10 KB: 10/30 + match) |
+  | wiki | 538 / 1,411 / 4,201 | 321 / 936 / 3,062 | 229 / 679 / 2,195 | 278 / 813 / 2,755 | 269 / 772 / 2,521 | **226 / 673 / 2,179** | mixed table |
+  | code | 421 / 1,061 / 2,936 | 370 / 1,031 / 2,989 | 220 / 638 / 1,980 | 302 / 865 / 2,804 | 288 / 786 / 2,329 | **219 / 638 / 1,980** | mixed table |
 
-  Real files, every chosen file decoded and checked: **2.9× smaller than gzip on books, 2.4× on wiki, 1.9× on code.** The router picks
-  the neural model for books and the mixed table for wiki/code, plus neural + match for some single docs. The neural model loses outside books
-  because it's books-trained; the R3-2 mixed-domain model can be swapped in via its fingerprint, and the same evaluation will show it.
+  **v2 vs gzip: books 2.9× / 2.7× / 2.4× smaller, wiki 2.4× / 2.1× / 1.9×, code 1.9× / 1.7× / 1.5×.** Never worse than the best single
+  method, and sometimes better (books 10 KB: 1,813 vs 1,817 B). The match model earns its place on longer docs (a third of the 10 KB books).
+  The neural model loses outside books only because it's books-trained. Next: add the R3-2 mixed-domain model (a new fingerprint) and rerun.
 
 ## Reproducibility (2026-10-22)
 

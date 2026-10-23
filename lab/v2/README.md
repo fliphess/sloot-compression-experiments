@@ -4,7 +4,7 @@
 and the match model (tricks round, trick 2). Per file the encoder picks the smallest (trick 1). Does that beat every single method,
 on books, Wikipedia and code?
 
-**Verdict:** see `results/` and `RESEARCH.md` (v2 section); evaluation running.
+**Verdict: ✅ works.** Never worse than the best single method. Real files vs gzip: books 2.9× (1 KB) to 2.4× (10 KB) smaller, Wikipedia 2.4× to 1.9×, code 1.9× to 1.5×. The router picks the neural model for books and the mixed table for Wikipedia and code. Full table in `RESEARCH.md` (v2 section).
 
 ## How it works
 
