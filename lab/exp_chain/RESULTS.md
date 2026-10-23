@@ -4,8 +4,7 @@ Question: can the published table T1 (`tables/en-gutenberg-v1.npz`, 31.0 MB, fin
 distributed and preserved as a **compressed seed corpus + method** instead of as a table file, and be rebuilt
 bit-identically by anyone? And how big is that seed?
 
-Status (2026-10-22 23:10): encoding of both seed modes **done**; decoding the progressive seed in a fresh process,
-rebuilding T1 and the cross-check are **running detached**; see "Pending verification" at the end.
+Status: **done and fully verified** (2026-10-22 23:35); see "Verification" at the end.
 
 ## Method (summary; full description in METHOD.md)
 
@@ -13,7 +12,7 @@ rebuilding T1 and the cross-check are **running detached**; see "Pending verific
   (`count_unk`): every spelled new word also increments UNK's order-0 count, so the probability of a new word
   follows the observed rate of new words (PPM method C at order 0). Without it, a new word's probability
   vanishes as `1/(W·N)`.
-- **Seed** = the 90 training books in ascending ID, the exact input of `python3 lab/codec.py build`.
+- **Seed** = the 90 training books in ascending ID, the exact input of `uv run python lab/codec.py build`.
 - **progressive**: books grouped into chunks starting at a cumulative 1, 2, 4, 8, … MB. Chunk 0 is coded with T0;
   chunk k with a table built by the unchanged v1 method from all books of the earlier chunks, which the decoder
   rebuilds the same way after decoding them. **Knowledge built on knowledge**: 7 rebuilds of 0-5 s each. Books in a
@@ -87,15 +86,15 @@ Per chunk (progressive vs perbook, bpc):
    first occurrences in chunk 0 (≈ K words × ~20 bits ≈ 10 KB for K = 4,000, < 0.1% of the seed), so I skipped it.
    It would matter for perbook or very small seeds.
 
-## Pending verification (running detached; re-runnable)
+## Verification
 
 Started 2026-10-22 23:08 CEST; expected done ≈ 23:45-23:55 (decoding is ~2.5× slower than encoding in Python: the
 order-0 decoder does a binary search with Python-level prefix sums; + ~10 s rebuild + ~1 min cross-check):
 
 ```sh
-cd /Users/flip/.projects/jansloot
-nohup sh -c 'date; time python3 lab/exp_chain/chain.py decode tables/exp_chain_seed_progressive.bin tables/exp_chain_decoded \
-  && python3 lab/exp_chain/chain.py crosscheck tables/exp_chain_decoded; date' > lab/exp_chain/results/decode.log 2>&1 &
+# from the project root
+nohup sh -c 'date; time uv run python lab/exp_chain/chain.py decode tables/exp_chain_seed_progressive.bin tables/exp_chain_decoded \
+  && uv run python lab/exp_chain/chain.py crosscheck tables/exp_chain_decoded; date' > lab/exp_chain/results/decode.log 2>&1 &
 ```
 
 - Log: `lab/exp_chain/results/decode.log`. Decoded books go to `tables/exp_chain_decoded/*.txt`, the rebuilt table
@@ -109,7 +108,9 @@ nohup sh -c 'date; time python3 lab/exp_chain/chain.py decode tables/exp_chain_s
 - The perbook seed isn't decoded (same codec as chunk 0, whose round trip is covered by the progressive decode;
   it was measured for size only).
 
-**Result:** _(to be filled in from decode.log)_
+**Result (2026-10-22 23:35, all four criteria met):** 90/90 books identical to the corpus (decode 1,604 s in Python, T1 rebuild 7 s);
+rebuilt fingerprint `1cd43ea2` = expected; all 12 arrays identical; 41/41 test files made with the original table decode
+identically with the rebuilt one.
 
 ## Caveats
 
@@ -123,11 +124,11 @@ nohup sh -c 'date; time python3 lab/exp_chain/chain.py decode tables/exp_chain_s
 ## Reproduce
 
 ```sh
-python3 lab/exp_chain/chain.py tune 41                                                # T0 weight check (~10 s)
-python3 lab/exp_chain/chain.py encode progressive tables/exp_chain_seed_progressive.bin  # ~13 min, 3 cores
-python3 lab/exp_chain/chain.py encode perbook tables/exp_chain_seed_perbook.bin          # ~10 min, 3 cores
-python3 lab/exp_chain/chain.py decode tables/exp_chain_seed_progressive.bin tables/exp_chain_decoded  # ~15 min
-python3 lab/exp_chain/chain.py crosscheck tables/exp_chain_decoded                       # ~1 min
+uv run python lab/exp_chain/chain.py tune 41                                                # T0 weight check (~10 s)
+uv run python lab/exp_chain/chain.py encode progressive tables/exp_chain_seed_progressive.bin  # ~13 min, 3 cores
+uv run python lab/exp_chain/chain.py encode perbook tables/exp_chain_seed_perbook.bin          # ~10 min, 3 cores
+uv run python lab/exp_chain/chain.py decode tables/exp_chain_seed_progressive.bin tables/exp_chain_decoded  # ~15 min
+uv run python lab/exp_chain/chain.py crosscheck tables/exp_chain_decoded                       # ~1 min
 ```
 
 Per-book sizes: `lab/exp_chain/results/encode_{progressive,perbook}.json`; logs in `lab/exp_chain/results/`.

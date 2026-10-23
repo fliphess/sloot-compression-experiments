@@ -23,12 +23,12 @@ Model and table make different mistakes: switching between them per ~16 bytes ga
 A byte-level GPT-style transformer (vocab 256 bytes + BOS, context 512), trained on the M4 GPU with PyTorch. Each document is
 coded from an empty context; documents longer than 512 B use a sliding window.
 
-## Run (needs the project venv with torch: see RESULTS.md)
+## Run (needs `uv sync --extra neural`)
 
 ```sh
 nohup caffeinate -i bash lab/exp_tinymodel/run_all.sh > lab/exp_tinymodel/logs/queue.log 2>&1 &   # 1m, 5m, 20m (~4.5 h)
-.venv/bin/python lab/exp_tinymodel/summarize.py
-.venv/bin/python lab/exp_tinymodel/mix.py 1m 5m 20m
+uv run python lab/exp_tinymodel/summarize.py
+uv run python lab/exp_tinymodel/mix.py 1m 5m 20m
 ```
 
 Files: `common.py` (model + evaluation), `train.py`, `table_bits.py` + `mix.py` (switching estimate), `summarize.py`, `results/`.

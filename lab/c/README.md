@@ -18,13 +18,13 @@ modules before it becomes the official reference.
 
 ```sh
 make -C lab/c                                                   # builds lab/c/steno (no dependencies)
-python3 lab/c/convert_table.py tables/en-gutenberg-v1.npz tables/c_en-gutenberg-v1.bin
+uv run python lab/c/convert_table.py tables/en-gutenberg-v1.npz tables/c_en-gutenberg-v1.bin
 lab/c/steno compress -a tables/c_en-gutenberg-v1.bin IN OUT     # -s static (default), -a adaptive
 lab/c/steno decompress tables/c_en-gutenberg-v1.bin IN OUT
 lab/c/steno verify tables/c_en-gutenberg-v1.bin                 # recompute the fingerprint in C
-python3 lab/c/ref.py inputs && python3 lab/c/ref.py encode v1 --procs 3   # Python reference outputs (slow)
-python3 lab/c/test.py v1 [static|adaptive]                      # bit-identity vs Python (v1 or 3gb)
-python3 lab/c/bench.py c                                        # C speed; `bench.py py v1` for Python
+uv run python lab/c/ref.py inputs && uv run python lab/c/ref.py encode v1 --procs 3   # Python reference outputs (slow)
+uv run python lab/c/test.py v1 [static|adaptive]                      # bit-identity vs Python (v1 or 3gb)
+uv run python lab/c/bench.py c                                        # C speed; `bench.py py v1` for Python
 ```
 
 Files: `steno.c`, `Makefile`, `convert_table.py` (table format in its docstring), `ref.py` (Python reference outputs),

@@ -20,15 +20,15 @@ recomputation of both table fingerprints matches the Python FrozenTable value.
 
 ```
 make -C lab/c                                                    # cc -std=c11 -O2 -Wall -Wextra -pedantic: no warnings
-python3 lab/c/convert_table.py tables/en-gutenberg-v1.npz tables/c_en-gutenberg-v1.bin      # 6 s
-python3 lab/c/convert_table.py tables/exp_table_3gb.npz  tables/c_exp_table_3gb.bin         # 120 s, 3.1 GB peak RSS
+uv run python lab/c/convert_table.py tables/en-gutenberg-v1.npz tables/c_en-gutenberg-v1.bin      # 6 s
+uv run python lab/c/convert_table.py tables/exp_table_3gb.npz  tables/c_exp_table_3gb.bin         # 120 s, 3.1 GB peak RSS
 lab/c/steno info   TABLE                                         # header, open+mmap time
 lab/c/steno verify TABLE                                         # recompute the SHA-256 fingerprint in C (1 s / 15 s)
 lab/c/steno compress [-s|-a] [-u] [-v] TABLE IN OUT [IN OUT ...] # -s static (mode 1, default), -a adaptive d3-sum-w32 (mode 2)
 lab/c/steno decompress [-u] [-v] TABLE IN OUT [IN OUT ...]       # mode taken from byte 0 (0 stored, 1 static, 2 adaptive)
-python3 lab/c/ref.py inputs && python3 lab/c/ref.py encode v1|3gb --procs N
-python3 lab/c/test.py v1|3gb [static|adaptive]
-python3 lab/c/bench.py c ; python3 lab/c/bench.py py v1|3gb
+uv run python lab/c/ref.py inputs && uv run python lab/c/ref.py encode v1|3gb --procs N
+uv run python lab/c/test.py v1|3gb [static|adaptive]
+uv run python lab/c/bench.py c ; uv run python lab/c/bench.py py v1|3gb
 ```
 
 `-u` = the E9 chain variant (`lab/exp_chain/chain.py`, `count_unk=True`: every spelled word also counts as UNK

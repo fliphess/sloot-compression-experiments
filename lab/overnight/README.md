@@ -22,9 +22,9 @@ Weight validation on 10 fresh books (v1 table): w8 / w32 / w64 within 0.5% of ea
 ## Run
 
 ```sh
-python3 lab/overnight/combo.py run exp_table_3gb               # a table + d3-sum-w32: snippets + books
-python3 lab/overnight/combo.py sweep en-gutenberg-v1 val d3-sum-w8 d3-sum-w32 d3-sum-w64   # weight sweep, fresh books
-python3 lab/overnight/combo.py summary
+uv run python lab/overnight/combo.py run exp_table_3gb               # a table + d3-sum-w32: snippets + books
+uv run python lab/overnight/combo.py sweep en-gutenberg-v1 val d3-sum-w8 d3-sum-w32 d3-sum-w64   # weight sweep, fresh books
+uv run python lab/overnight/combo.py summary
 ```
 
 Files: `combo.py`, `results/*.json`, `logs/`.

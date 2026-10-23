@@ -1,37 +1,44 @@
 # rjbs-compression-experiments
 
-Research into a modern, honest version of the
-[Sloot Digital Coding System](https://en.wikipedia.org/wiki/Sloot_Digital_Coding_System): extreme
-compression for long-term archival storage, driven by one large, frozen, shared reference table.
+A Friday-evening hobby experiment: what could Jan Sloot's legendary "film on a chip card" compression have been, and how far can
+you get in 2026 with shared tables, small neural networks and deterministic arithmetic coding? Done for fun and to learn; not research.
 
-**Start with [RESEARCH.md](RESEARCH.md)**: the goal, the decisions made, every experiment with its results, and what's next.
+**Status: concluded.** Short answer: shared knowledge makes text 1.5-2.9× smaller than gzip, but on paper the knowledge itself has to be
+printed too, which makes the approach unrealistic for its original goal. Along the way: bit-identical integer-only neural inference.
+
+## Where to start
+
+1. **[WRITEUP.md](WRITEUP.md)**: the story in plain words: what we tried, what worked, what didn't, and why.
+2. **[RESEARCH.md](RESEARCH.md)**: the detailed log, with every decision and every number, in order.
+3. **[lab/README.md](lab/README.md)**: a map of all code and experiments, each with its verdict. Every experiment directory has its own README.
 
 ## Layout
 
 | path | in git | contents |
 |---|---|---|
-| `RESEARCH.md` | yes | research log and handover |
-| `prompt.txt` | yes | the original brief |
-| `lab/` | yes | all code: experiments, codec, tooling |
-| `lab/corpus_manifest.json` | yes | SHA-256 of every corpus file, so a rebuilt corpus is verifiably identical |
-| `lab/exp_*/` | yes | parallel experiments, each with its own `RESULTS.md` |
-| `corpus/` | no | downloaded and derived data, rebuilt by `lab/fetch_corpus.py` |
-| `tables/` | no | frozen reference tables, rebuilt by the build commands |
+| `WRITEUP.md`, `RESEARCH.md`, `prompt.txt` | yes | the story, the log, the original question |
+| `pyproject.toml`, `uv.lock` | yes | Python dependencies (numpy; PyTorch as the optional `neural` extra) |
+| `lab/` | yes | all code, experiment results and logs |
+| `lab/corpus_manifest.json`, `lab/exp_table/manifest.json` | yes | SHA-256 of every corpus file, so a rebuilt corpus can be checked |
+| `corpus/` | no | downloaded and derived data (~3 GB), rebuilt by script |
+| `tables/` | no | frozen tables and models (several GB), rebuilt by script |
 
 ## Reproduce
 
-Requirements: Python 3.12+ with numpy (`pip install -r requirements.txt`), plus the command-line
-compressors for the baselines: `gzip bzip2 xz zstd brotli` (e.g. `brew install xz zstd brotli`).
+Requirements: [uv](https://docs.astral.sh/uv/), the command-line compressors `gzip bzip2 xz zstd brotli` (e.g. `brew install xz zstd brotli`)
+and a C compiler.
 
 ```sh
-python3 lab/fetch_corpus.py          # download + build the corpus, verify every file (~200 MB, a few minutes)
-python3 lab/codec.py build           # build the frozen table tables/en-gutenberg-v1.npz (fingerprint 1cd43ea2)
-python3 lab/codec.py test            # round trip + size report on 200 short documents
+uv sync                                  # Python env with numpy (add --extra neural for PyTorch)
+uv run python lab/fetch_corpus.py        # base corpus: enwik8, 100 Gutenberg books, samples (~200 MB), checked against the manifest
+uv run python lab/codec.py build         # the v1 table, tables/en-gutenberg-v1.npz (fingerprint 1cd43ea2)
+uv run python lab/codec.py test          # round trip + size report on 200 short documents
+make -C lab/c                            # the C codec (see lab/c/README.md)
 ```
 
-Each experiment's script is listed with its results in `RESEARCH.md`. `python3 lab/fetch_corpus.py verify`
-checks an existing corpus.
+The neural experiments need `uv sync --extra neural`. Training used the Apple M4 GPU (MPS) and takes hours per model. The bigger
+experiments (the 3 GB corpus, the neural models, v2) have their exact commands in their own READMEs. A few shell scripts call
+`./.venv/bin/python` directly; that's the environment `uv sync` creates.
 
-The deliverable is the *method* to build a table, not one specific table. Sources drift (Project Gutenberg
-occasionally corrects its texts); that's reported as a warning, and a table built from drifted sources gets a
-different fingerprint, so results can differ slightly from the log. Use `--strict` to require an exact match.
+Sources drift: Project Gutenberg occasionally corrects a book. That's reported as a warning, and a table built from drifted sources gets a
+different fingerprint, so numbers can differ slightly from the log. `uv run python lab/fetch_corpus.py --strict` requires an exact match.

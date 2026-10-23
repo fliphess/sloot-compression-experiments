@@ -6,8 +6,8 @@ only the training data, and therefore the table, varies. All numbers are **real 
 bytes** from the codec, on the fixed E7 test set: 200 short snippets (`short_docs.snippets`,
 5 per test book per size) and the 10 full test books (`steno.split_books`).
 
-Status (2026-10-22 23:10): tiers 85 MB / 300 MB / 1 GB (+ pruned variants) done. **3 GB tier
-running detached** (see "Pending run").
+Status: **done**. Tiers 85 MB / 300 MB / 1 GB / 3 GB (+ pruned variants); the final table incl. 3 GB and the 4-point fit
+are in `results/summary.md` (and summarised in RESEARCH.md, E8c).
 
 ## Data
 
@@ -38,7 +38,7 @@ v1 = the 90-book tier; my builder reproduces `tables/en-gutenberg-v1.npz` bit fo
 | v1 (85 MB) | 85 | 90 | 24M | 136,525 | 2.4M + 7.9M | - | 31 | 285.3 B (2.271) | 837.2 (2.220) | 2,756.1 (2.192) | 8,207.4 (2.175) | 2.420 |
 | 300 MB | 300 | 705 | 79M | 299,050 | 6.9M + 25.3M | - | 94 | 262.1 B (2.087) | 768.9 (2.039) | 2,534.3 (2.016) | 7,527.3 (1.995) | 2.209 |
 | 1 GB | 1,000 | 2,574 | 260M | 573,280 | 16.1M + 67.8M | - | 240 | **249.3 B (1.985)** | 734.5 (1.947) | 2,424.0 (1.928) | 7,204.2 (1.910) | **2.095** |
-| 3 GB | 3,000 | | | | | - | | *pending* | | | | |
+| 3 GB | 3,000 | 8,206 | 776M | 1,064,949 | 33.7M + 159.2M | - | 545 | 242.3 B (1.929) | 714.1 (1.893) | 2,354.3 (1.873) | 6,992.2 (1.853) | 2.019 |
 | 300 MB pruned | 300 | 705 | 79M | 299,050 | 2.7M + 6.0M | ≥2 | 26 | 269.2 B (2.143) | 789.0 (2.092) | 2,602.8 (2.071) | 7,735.2 (2.050) | 2.275 |
 | 1 GB pruned | 1,000 | 2,574 | 260M | 573,280 | 6.5M + 16.9M | ≥2 | 68 | 255.4 B (2.034) | 752.6 (1.995) | 2,486.7 (1.978) | 7,384.7 (1.958) | 2.154 |
 
@@ -93,7 +93,7 @@ at infinity), and 10 GB of text gets ~5% of it. A 10 GB *table* is not the bottl
 - Speed: building is ~70 s per GB of text on 3 cores. Evaluation of a tier: ~5 min (Python codec).
 - Tables are written as `.partial_*` and renamed when complete, so readers never see half a file.
 
-## Pending run (detached)
+## The 3 GB run (detached, finished 2026-10-22 23:31)
 
 - Command: `nohup lab/exp_table/run_3gb.sh > lab/exp_table/logs/run_3gb.log 2>&1 &` (started 2026-10-22 23:05).
 - Steps: leakage check of the new books → manifest → build `tables/exp_table_3gb.npz` → evaluate →
@@ -105,22 +105,22 @@ at infinity), and 10 GB of text gets ~5% of it. A 10 GB *table* is not the bottl
 `corpus/` and `tables/` are not tracked; `lab/exp_table/manifest.json` and `leakage.tsv` are.
 
 ```sh
-python3 lab/fetch_corpus.py                       # the 100 base books (main session's script)
+uv run python lab/fetch_corpus.py                       # the 100 base books (main session's script)
 mkdir -p corpus/gutenberg_big
 curl -sSfL -o corpus/gutenberg_big/pg_catalog.csv https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
                                                   # only needed for leakage title checks
-python3 lab/exp_table/fetch_big.py --from-manifest   # exactly the manifest books, sha256-verified
-python3 lab/exp_table/leakage.py --procs 3        # uses the cached leakage.tsv; checks only new books
+uv run python lab/exp_table/fetch_big.py --from-manifest   # exactly the manifest books, sha256-verified
+uv run python lab/exp_table/leakage.py --procs 3        # uses the cached leakage.tsv; checks only new books
 for t in "300 300mb" "1000 1gb" "3000 3gb"; do set -- $t
-  python3 lab/exp_table/build_table.py --mb $1 --out tables/exp_table_$2.npz
-  python3 lab/exp_table/evaluate.py tables/exp_table_$2.npz
+  uv run python lab/exp_table/build_table.py --mb $1 --out tables/exp_table_$2.npz
+  uv run python lab/exp_table/evaluate.py tables/exp_table_$2.npz
 done
-python3 lab/exp_table/build_table.py --mb 300 --prune 2 --out tables/exp_table_300mb_p2.npz
-python3 lab/exp_table/build_table.py --mb 1000 --prune 2 --out tables/exp_table_1gb_p2.npz
-python3 lab/exp_table/summarize.py
+uv run python lab/exp_table/build_table.py --mb 300 --prune 2 --out tables/exp_table_300mb_p2.npz
+uv run python lab/exp_table/build_table.py --mb 1000 --prune 2 --out tables/exp_table_1gb_p2.npz
+uv run python lab/exp_table/summarize.py
 ```
 
-To grow the corpus instead: `python3 lab/exp_table/fetch_big.py --target-mb N`, then `leakage.py`, then `manifest.py`.
+To grow the corpus instead: `uv run python lab/exp_table/fetch_big.py --target-mb N`, then `leakage.py`, then `manifest.py`.
 Expected fingerprints: v1 `1cd43ea2`, 300 MB `abec13e6`, 1 GB `efdfa5ee`, 300 MB pruned `29ac6e25`, 1 GB pruned `f8f5fc12`.
 If Gutenberg has changed a text since, `--from-manifest` warns and the fingerprints will differ slightly.
 

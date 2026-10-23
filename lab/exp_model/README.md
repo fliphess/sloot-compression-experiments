@@ -24,10 +24,10 @@ spelling 6.5%, case 2%. Little room is left in this static model; the bigger lev
 ## Run
 
 ```sh
-python3 lab/exp_model/run.py base                  # = codec v1, builds tables/exp_model_o2.npz
-python3 lab/exp_model/run.py wrap+case2+sp2+S      # any variant: parts joined with +
-python3 lab/exp_model/summarize.py                 # results table
-python3 lab/exp_model/breakdown.py wrap+case2+sp2+S 10000   # bits per category
+uv run python lab/exp_model/run.py base                  # = codec v1, builds tables/exp_model_o2.npz
+uv run python lab/exp_model/run.py wrap+case2+sp2+S      # any variant: parts joined with +
+uv run python lab/exp_model/summarize.py                 # results table
+uv run python lab/exp_model/breakdown.py wrap+case2+sp2+S 10000   # bits per category
 ```
 
 Files: `model.py` (variants, encoder/decoder), `run.py` (evaluation), `summarize.py`, `breakdown.py`, `results/*.json`.

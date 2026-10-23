@@ -18,13 +18,13 @@ on books, Wikipedia and code?
 - **`evaluate.py`**: real bytes for every candidate on the domains test set (C codec for the tables; integer model for neural),
   with every chosen file decode-verified.
 
-## Run (project venv)
+## Run (needs `uv sync --extra neural`)
 
 ```sh
-for i in 0 1 2 3; do VECLIB_MAXIMUM_THREADS=1 nohup ./.venv/bin/python lab/v2/evaluate.py run $i 4 > lab/v2/logs/eval_$i.log 2>&1 & done
-./.venv/bin/python lab/v2/evaluate.py summary
-./.venv/bin/python lab/v2/codec2.py compress IN OUT      # Python reference: tries all tables + the model (slow)
-./.venv/bin/python lab/v2/codec2.py decompress IN OUT
+for i in 0 1 2 3; do VECLIB_MAXIMUM_THREADS=1 nohup uv run python lab/v2/evaluate.py run $i 4 > lab/v2/logs/eval_$i.log 2>&1 & done
+uv run python lab/v2/evaluate.py summary
+uv run python lab/v2/codec2.py compress IN OUT      # Python reference: tries all tables + the model (slow)
+uv run python lab/v2/codec2.py decompress IN OUT
 ```
 
 Needs `tables/` with `en-gutenberg-v1.npz`, `exp_table_3gb.npz`, `round2_mixed.npz` (+ their `c_*.bin` conversions) and `intmodel_20m_big.bin`.

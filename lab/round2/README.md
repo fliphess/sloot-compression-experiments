@@ -17,8 +17,9 @@ Integer-only inference works and costs almost nothing in compression. The new bo
 | that model + table, switching (`mix_big.py`) | 204.5 B | 5,640 B | - | ideal |
 | 20M model (E10), integer-only, **real files** (`intmodel/`) | 238.5 B | 6,729 B | - | real, 200/200 round trips |
 
-The model's validation loss was still falling at the end of training (only ~10% of the 3 GB was seen), so a longer run is
-in progress (`20m_long`, 54,000 steps). With this model, switching to the table gains only ~1%. Real mixing could gain more (the oracle ceiling is 185 B at 1 KB).
+The model's validation loss was still falling at the end of training (only ~10% of the 3 GB was seen). A longer books-only run
+(`20m_long`) was stopped in favour of a domain-mix run (`train_mixed.py`, books / Wikipedia / code; results in `results/20m_mixed.json`
+and `results/domains_mixed_model.json` once finished). With this model, switching to the table gains only ~1%. Real mixing could gain more (the oracle ceiling is 185 B at 1 KB).
 
 ## Files
 
@@ -29,12 +30,12 @@ in progress (`20m_long`, 54,000 steps). With this model, switching to the table 
 | [`intmodel/`](intmodel/) | E12: integer-only inference, frequency rule, real files, determinism checks (see its RESULTS.md) |
 | `logs/`, `results/` | training curves and results |
 
-## Run (needs the project venv with torch)
+## Run (needs `uv sync --extra neural`)
 
 ```sh
-nohup caffeinate -i ./.venv/bin/python lab/round2/train_big.py 20m_big 18000 > lab/round2/logs/20m_big.log 2>&1 &   # ~7 h GPU
-./.venv/bin/python lab/round2/mix_big.py tokens exp_table_3gb
-./.venv/bin/python lab/round2/mix_big.py mix exp_table_3gb round2_20m_big.pt
-./.venv/bin/python lab/round2/intmodel/export.py tables/round2_20m_big.pt 20m_big       # integer model file
-./.venv/bin/python lab/round2/intmodel/nncodec.py compress tables/intmodel_20m_big.bin IN OUT
+nohup caffeinate -i uv run python lab/round2/train_big.py 20m_big 18000 > lab/round2/logs/20m_big.log 2>&1 &   # ~7 h GPU
+uv run python lab/round2/mix_big.py tokens exp_table_3gb
+uv run python lab/round2/mix_big.py mix exp_table_3gb round2_20m_big.pt
+uv run python lab/round2/intmodel/export.py tables/round2_20m_big.pt 20m_big       # integer model file
+uv run python lab/round2/intmodel/nncodec.py compress tables/intmodel_20m_big.bin IN OUT
 ```

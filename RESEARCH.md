@@ -7,12 +7,12 @@ large shared reference table. Started 2026-10-22. The original brief is in `prom
 
 ## Handover: read this first
 
-- This file is the source of truth: goal, decisions, every experiment with results, and what's next.
-  Update it after every experiment: append to the log, don't rewrite history.
-- All code is in `lab/` (Python 3 + numpy, run from the project root); `lab/README.md` maps every script and experiment directory, and each directory has its own README (question, verdict, key result, how to run). Data is in `corpus/`, frozen tables in `tables/`.
-- Running experiments write their own results to `lab/exp_*/RESULTS.md`; merge their conclusions here.
-- The user wants to be part of the decisions: measure first, present numbers, and pick together.
-  Don't publish anything externally (no claude.ai docs, Drive, etc.); everything stays on disk.
+- **Status: concluded (2026-10-23).** This was a Friday-evening experiment for fun and learning. Start with `WRITEUP.md` (the story in plain
+  words); this file is the detailed log: goal, decisions, every experiment with its numbers, in the order they happened.
+- All code is in `lab/` (Python 3 + numpy; the neural parts also need PyTorch, `uv sync --extra neural`). `lab/README.md` maps every script
+  and experiment directory, and each directory has its own README (question, verdict, key result, how to run). Data goes in `corpus/`
+  and frozen tables/models in `tables/`; both are gitignored and rebuilt by script (see `README.md`).
+- Sections below that mention "running" jobs are historical: everything ran to completion except where noted.
 
 ## Conclusion (2026-10-23): a good exercise, but unrealistic as a paper storage format
 
@@ -173,7 +173,7 @@ v1 static beats xz on 9/10 books (2.08 vs 2.25 bpc without 37683). It loses heav
 (37683: 3.94; it's 30% of the output on its own) and on the Bible (10: long and repetitive, which favours
 adaptive/LZ). So the full-book total (2.42) is worse than xz; this is exactly what E8b (adaptive) should fix.
 
-## Running: E8 three parallel experiments (started 2026-10-22)
+## E8: three parallel experiments (2026-10-22)
 
 All measured against codec v1 (E7) on the same test set: the 200 short snippets (`short_docs.snippets`) and the 10 full test books.
 Each lives in its own directory and must not modify shared files (`lab/codec.py`, `lab/steno.py`, `lab/short_docs.py`, `tables/en-gutenberg-v1.npz`, `corpus/gutenberg/`).
@@ -183,7 +183,7 @@ Each lives in its own directory and must not modify shared files (`lab/codec.py`
 | E8a | `lab/exp_model/` | model improvements: case as a separate flag, line-break/column model, order-3/4 contexts, better escape estimation (PPMD/X); each alone, then combined | **done**, see E8a below |
 | E8b | `lab/exp_adaptive/` | per-document adaptive layer inside the real codec (integer, deterministic) | **done**, see E8b below |
 
-Note: all agents were stopped by the usage limit at ~23:20; their detached jobs finished on their own (E8c 3 GB, E9 verification) or are still running (E10 20M).
+Note: all agents were stopped by the usage limit at ~23:20; their detached jobs finished on their own (E8c 3 GB, E9 verification) or later (E10 20M); everything finished.
 | E8c | `lab/exp_table/` | larger tables: 0.3 / 1 / 3+ GB of training text (more Gutenberg, no test-book duplicates), scaling curve vs table size on disk | **done**, see E8c below |
 
 ### E8a result: model improvements (`lab/exp_model/`, details + port-ready algorithm in its RESULTS.md)
@@ -276,7 +276,7 @@ The frozen table is never modified; the decoder rebuilds the layer, so nothing e
   rescaling yet (limit ~30M tokens per document); 1.6× slower than static in Python; the best weight may shift
   with E8a/E8c.
 
-## Overnight 2026-10-22 → 23: what's running and where to look
+## Overnight 2026-10-22 → 23 (historical: what ran where)
 
 | job | what | where |
 |---|---|---|
@@ -294,7 +294,7 @@ The frozen table is never modified; the decoder rebuilds the layer, so nothing e
 Status at 02:30: workers 1-4 done, E8c's 3 GB run done, E9 verification done. **07:30: everything done**: workers 5-6, E10 20M + mix (merged above).
 
 Workers are plain detached processes (no agent needed): `lab/overnight/combo.py`. Check with
-`pgrep -fl overnight/combo.py` and `python3 lab/overnight/combo.py summary`. If the agents stopped (session limit), their
+`pgrep -fl overnight/combo.py` and `uv run python lab/overnight/combo.py summary`. If the agents stopped (session limit), their
 RESULTS.md files say which commands were left running or still have to run.
 Validation-set caveat: the 10 fresh books are checked against test-book leakage only, not against other editions of training books.
 
@@ -588,7 +588,7 @@ the method is the deliverable, and each trained instance gets a fingerprint, lik
   short docs (276 B). That's the generalisation advantage. On whole books, table + adaptive wins (1.78-1.91 vs 2.10), because the model only sees
   512 B of context. Mixing model + table + document layer should combine both (`mix.py` is queued after the 20M run).
   Fake-int8 costs only +0.4% for 5M, so integer-only inference looks plausible (LayerNorm/softmax/GELU not yet integerised).
-- 2026-10-22: user said **go**. E10 step 1 is running in `lab/exp_tinymodel/` (models ~1/5/20M params, same 90 books, ideal bpc,
+- 2026-10-22: user said **go**. E10 step 1 was started in `lab/exp_tinymodel/` (models ~1/5/20M params, same 90 books, ideal bpc,
   fp32 vs fake-int8, size, speed; optional bigger-data run and table-mix estimate).
 
 ## Open questions and parked ideas

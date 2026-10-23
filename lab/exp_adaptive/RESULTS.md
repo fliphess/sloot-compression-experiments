@@ -171,12 +171,12 @@ totals < 2³⁰), except mode byte = 2. Totals stay below 2³⁰ for documents u
 
 ## Reproduce
 
-From the project root, with `tables/en-gutenberg-v1.npz` built (`python3 lab/codec.py build`):
+From the project root, with `tables/en-gutenberg-v1.npz` built (`uv run python lab/codec.py build`):
 
 ```
-python3 lab/exp_adaptive/run.py short                     # all configs, 200 snippets (~25 min, 3 processes)
-python3 lab/exp_adaptive/run.py books static sum-w4 sum-w32 sum-w128 d3-sum-w32 d3-sum-w64   # ~20 min
-python3 lab/exp_adaptive/run.py verify d3-sum-w32         # decode + compare all 10 books (~4 min)
-python3 lab/exp_adaptive/run.py perdoc d3-sum-w32         # per-snippet comparison with static
-python3 lab/exp_adaptive/run.py report                    # print the tables from results/*.json
+uv run python lab/exp_adaptive/run.py short                     # all configs, 200 snippets (~25 min, 3 processes)
+uv run python lab/exp_adaptive/run.py books static sum-w4 sum-w32 sum-w128 d3-sum-w32 d3-sum-w64   # ~20 min
+uv run python lab/exp_adaptive/run.py verify d3-sum-w32         # decode + compare all 10 books (~4 min)
+uv run python lab/exp_adaptive/run.py perdoc d3-sum-w32         # per-snippet comparison with static
+uv run python lab/exp_adaptive/run.py report                    # print the tables from results/*.json
 ```

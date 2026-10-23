@@ -33,9 +33,9 @@ More text + pruning beats less text kept whole.
 See "Reproduce from scratch" in [RESULTS.md](RESULTS.md). In short:
 
 ```sh
-python3 lab/exp_table/fetch_big.py --from-manifest
-python3 lab/exp_table/build_table.py --mb 3000 --out tables/exp_table_3gb.npz
-python3 lab/exp_table/evaluate.py tables/exp_table_3gb.npz
+uv run python lab/exp_table/fetch_big.py --from-manifest
+uv run python lab/exp_table/build_table.py --mb 3000 --out tables/exp_table_3gb.npz
+uv run python lab/exp_table/evaluate.py tables/exp_table_3gb.npz
 ```
 
 `manifest.json` (book IDs + hashes) and `leakage.tsv` are tracked; the books and tables aren't.

@@ -26,8 +26,8 @@ What didn't work: weight 1 (far too weak), and document-only contexts placed *in
 ## Run
 
 ```sh
-python3 lab/exp_adaptive/run.py short                  # all configs on 200 snippets (~25 min)
-python3 lab/exp_adaptive/run.py books d3-sum-w32       # full books (~20 min)
+uv run python lab/exp_adaptive/run.py short                  # all configs on 200 snippets (~25 min)
+uv run python lab/exp_adaptive/run.py books d3-sum-w32       # full books (~20 min)
 ```
 
 Files: `adaptive.py` (codec with the adaptive layer), `run.py` (configs + evaluation), `results/`. Details: [RESULTS.md](RESULTS.md).

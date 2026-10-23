@@ -27,9 +27,9 @@ T0 = an empty table plus the adaptive codec. The seed is cut into chunks at 1, 2
 ## Run
 
 ```sh
-python3 lab/exp_chain/chain.py encode progressive tables/exp_chain_seed_progressive.bin    # ~13 min (Python)
-python3 lab/exp_chain/chain.py decode tables/exp_chain_seed_progressive.bin tables/exp_chain_decoded   # ~27 min
-python3 lab/exp_chain/chain.py crosscheck tables/exp_chain_decoded
+uv run python lab/exp_chain/chain.py encode progressive tables/exp_chain_seed_progressive.bin    # ~13 min (Python)
+uv run python lab/exp_chain/chain.py decode tables/exp_chain_seed_progressive.bin tables/exp_chain_decoded   # ~27 min
+uv run python lab/exp_chain/chain.py crosscheck tables/exp_chain_decoded
 ```
 
 Files: `chain.py`, [METHOD.md](METHOD.md) (spec draft), [RESULTS.md](RESULTS.md), `results/`.

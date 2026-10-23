@@ -145,14 +145,14 @@ Tables are built automatically on first use into `tables/exp_model_*` (~1-2 min 
 o3/o4; SEE ~1 min; sp2 ~1 min). Peak RAM ~3 GB while building; ~0.4 GB when only loading.
 
 ```sh
-python3 lab/exp_model/run.py base                 # builds tables/exp_model_o2.npz; equals v1
+uv run python lab/exp_model/run.py base                 # builds tables/exp_model_o2.npz; equals v1
 for v in case case2 wrap o3 o4 D X S sp2 wrap+case2+sp2+S; do
-  python3 lab/exp_model/run.py $v                  # ~10 min each; writes lab/exp_model/results/$v.json
+  uv run python lab/exp_model/run.py $v                  # ~10 min each; writes lab/exp_model/results/$v.json
 done
-python3 lab/exp_model/summarize.py                 # the results table above
-python3 lab/exp_model/breakdown.py wrap+case2+sp2+S 10000   # bits per category (ideal)
-python3 lab/exp_model/breakdown.py o3+m16 10000             # min-count pruning checks
-python3 lab/exp_model/run.py VARIANT --quick       # 15 × 1 KB smoke test
+uv run python lab/exp_model/summarize.py                 # the results table above
+uv run python lab/exp_model/breakdown.py wrap+case2+sp2+S 10000   # bits per category (ideal)
+uv run python lab/exp_model/breakdown.py o3+m16 10000             # min-count pruning checks
+uv run python lab/exp_model/run.py VARIANT --quick       # 15 × 1 KB smoke test
 ```
 
 Variant names combine with `+`: `case`, `case2`, `wrap`, `sp2`, `o2`/`o3`/`o4`, `C`/`D`/`X`/`S`, `m<N>`.

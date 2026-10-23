@@ -1,8 +1,6 @@
 # E10 step 1: tiny self-built model, measuring the potential
 
-**Status: overnight sweep running** (started 2026-10-22 23:06, detached via `nohup caffeinate -i`).
-Expected finish: 1M ≈ 00:15, 5M ≈ 02:20, 20M ≈ 04:50 (2026-10-23). The table below fills in per model:
-run `python3 lab/exp_tinymodel/summarize.py` after a model finishes.
+**Status: done** (1m, 5m, 20m trained and evaluated overnight 2026-10-22 → 23; the mixing estimate `mix.py` too).
 
 ## Question
 
@@ -68,9 +66,9 @@ Short docs: average bytes per document = ceil(ideal bits / 8) + 7 B container, w
 ## Reproduce
 
 ```sh
-uv venv .venv --python 3.13 && uv pip install --python .venv/bin/python torch numpy
+uv sync --extra neural
 nohup caffeinate -i bash lab/exp_tinymodel/run_all.sh > lab/exp_tinymodel/logs/queue.log 2>&1 &
-python3 lab/exp_tinymodel/summarize.py     # after (each) model finishes
+uv run python lab/exp_tinymodel/summarize.py     # after (each) model finishes
 ```
 
 Logs: `lab/exp_tinymodel/logs/{queue,1m,5m,20m}.log`. Per-model JSON (curves, per-document bits): `lab/exp_tinymodel/results/`.

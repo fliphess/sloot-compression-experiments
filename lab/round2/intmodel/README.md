@@ -12,7 +12,7 @@ over the fp32 ideal. **Limitation:** numpy speed (encode ~0.5 KB/s, decode 0.1-0
 |---|---|---|---|
 | 5M | 256.4 B | 7,317 B | +0.4% |
 | 20M (E10, 85 MB) | 238.5 B | 6,729 B | +0.07-0.11% |
-| 20M_big (3 GB) | running | | |
+| **20M_big (3 GB)** | **207.2 B** | **5,722 B** | +0.2% |
 
 Determinism: identical output across the `int`/`f32`/`f64` backends and thread settings (on subsets; see RESULTS.md).
 
@@ -24,17 +24,16 @@ Determinism: identical output across the `int`/`f32`/`f64` backends and thread s
   carries a self-test hash of the integer logits for a fixed input, and the codec refuses a backend that doesn't reproduce it.
 - Model files: `tables/intmodel_*.bin`, with fingerprints.
 
-## Run (project venv)
+## Run (needs `uv sync --extra neural`)
 
 ```sh
-./.venv/bin/python lab/round2/intmodel/export.py tables/exp_tinymodel_20m.pt 20m
-./.venv/bin/python lab/round2/intmodel/nncodec.py compress tables/intmodel_20m.bin IN OUT [--backend int|f32|f64]
-./.venv/bin/python lab/round2/intmodel/nncodec.py decompress tables/intmodel_20m.bin IN OUT
-VECLIB_MAXIMUM_THREADS=1 ./.venv/bin/python lab/round2/intmodel/run_eval.py 20m f32 0 1    # 200 snippets
-./.venv/bin/python lab/round2/intmodel/summarize.py
+uv run python lab/round2/intmodel/export.py tables/exp_tinymodel_20m.pt 20m
+uv run python lab/round2/intmodel/nncodec.py compress tables/intmodel_20m.bin IN OUT [--backend int|f32|f64]
+uv run python lab/round2/intmodel/nncodec.py decompress tables/intmodel_20m.bin IN OUT
+VECLIB_MAXIMUM_THREADS=1 uv run python lab/round2/intmodel/run_eval.py 20m f32 0 1    # 200 snippets
+uv run python lab/round2/intmodel/summarize.py
 bash lab/round2/intmodel/det.sh                                                             # determinism checks
 ```
 
 Files: `export.py`, `intlm.py` (integer model), `nncodec.py` (codec + container), `run_eval.py`, `run_books.py`, `summarize.py`,
-`det.sh`/`det2.sh`. Details: [RESULTS.md](RESULTS.md). Note: RESULTS.md was written by an agent that was stopped before
-it finished; its "Results" section is incomplete. `summarize.py` prints the current numbers.
+`det.sh`/`det2.sh`. Details: [RESULTS.md](RESULTS.md).

@@ -1,0 +1,14 @@
+[project]
+name = "rjbs-compression-experiments"
+version = "0.1.0"
+description = "A hobby experiment revisiting Jan Sloot's compression myth: shared tables, small neural models, deterministic coding"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.5"]
+
+[project.optional-dependencies]
+# Only for the neural experiments (training on the Apple M4 GPU via MPS, integer inference)
+neural = ["torch==2.14.1"]
+
+[tool.uv]
+package = false
