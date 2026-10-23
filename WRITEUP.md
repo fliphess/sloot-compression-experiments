@@ -51,6 +51,21 @@ Final numbers, as real files (decoded and checked byte for byte), per document:
 | Wikipedia | 226 B | 673 B | 2,179 B | 1.9-2.4× smaller |
 | Python code | 219 B | 638 B | 1,980 B | 1.5-1.9× smaller |
 
+### Postscript: a model trained on books, Wikipedia and code
+
+The last run trained the same 20M model on a mix (60% books, 25% Wikipedia, 15% Python code), to see whether one small model can cover
+several kinds of text, as the mixed table did. Its results:
+
+<!-- mixed-results:start -->
+| ideal bytes per doc, 1 / 3 / 10 KB | gzip (real) | mixed table + adaptive (real) | books-only 20M model | **mixed 20M model** |
+|---|---|---|---|---|
+| books | 565 / 1,480 / 4,410 | 256 / 732 / 2,382 | 197 / 554 / 1,819 | **… / … / …** |
+| wiki | 538 / 1,411 / 4,201 | 229 / 679 / 2,195 | 278 / 811 / 2,749 | **… / … / …** |
+| code | 421 / 1,061 / 2,936 | 220 / 638 / 1,980 | 301 / 863 / 2,796 | **… / … / …** |
+
+*Pending: the run finishes ~2026-10-24 18:30; this table fills itself in afterwards (`lab/round2/fill_mixed_results.py`).*
+<!-- mixed-results:end -->
+
 ## Why it doesn't work on paper
 
 All the gain comes from the shared table or model. For a digital archive that's fine: publish the table once, and files only

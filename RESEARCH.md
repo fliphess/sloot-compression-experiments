@@ -421,7 +421,17 @@ User decision: **adopt tricks 1 (routing) and 2 (match model), drop trick 3 (han
   itself on the book test set (fp32 + int8) into `lab/round2/results/20m_mixed.json`.
 - `lab/round2/final_mixed.sh` (detached) then runs the domain test on it: `lab/round2/results/domains_mixed_model.json`,
   log `lab/round2/logs/final_mixed.log` (ends with FINAL_MIXED_DONE). Compare with E13 (books-only model: wiki 278 / code 301 B per 1 KB;
-  mixed table: 229 / 220 B).
+  mixed table: 229 / 220 B). `lab/round2/fill_mixed_results.py` fills in the table below (and the one in WRITEUP.md) automatically when it's done.
+
+<!-- mixed-results:start -->
+| ideal bytes per doc, 1 / 3 / 10 KB | gzip (real) | mixed table + adaptive (real) | books-only 20M model | **mixed 20M model** |
+|---|---|---|---|---|
+| books | 565 / 1,480 / 4,410 | 256 / 732 / 2,382 | 197 / 554 / 1,819 | **… / … / …** |
+| wiki | 538 / 1,411 / 4,201 | 229 / 679 / 2,195 | 278 / 811 / 2,749 | **… / … / …** |
+| code | 421 / 1,061 / 2,936 | 220 / 638 / 1,980 | 301 / 863 / 2,796 | **… / … / …** |
+
+*Pending: the run finishes ~2026-10-24 18:30; this table fills itself in afterwards (`lab/round2/fill_mixed_results.py`).*
+<!-- mixed-results:end -->
 
 ## Reproducibility (2026-10-22)
 
