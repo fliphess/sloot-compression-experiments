@@ -14,6 +14,37 @@ large shared reference table. Started 2026-10-22. The original brief is in `prom
 - The user wants to be part of the decisions: measure first, present numbers, and pick together.
   Don't publish anything externally (no claude.ai docs, Drive, etc.); everything stays on disk.
 
+## Conclusion (2026-10-23): a good exercise, but unrealistic as a paper storage format
+
+The user decided to stop here, after the last running job (mixed-domain model, see "Final results pending" below).
+
+**What we set out to do** (`prompt.txt`): a compression mechanism, a reference mechanism and a paper standard, in the spirit of
+Jan Sloot's "coding, not compression", built to last forever.
+
+**What we learned**
+1. **Sloot's claim is impossible for arbitrary data**, and possible only as shared knowledge: a pointer into a library the decoder already
+   has (1 MB → 125 B if it's *in* the reference), or statistics that lower H(X) to H(X | T). "Beating Shannon with helper tables" is Shannon with
+   side information. Random data stays at 8 bpc, and no second round, second table or character set changes that.
+2. **Shared knowledge gives real but bounded gains.** The best system (v2: per-file routing over frozen tables + an integer neural model
+   + a match model) makes text **1.5-2.9× smaller than gzip** as real, deterministic, verified files. Gains flatten with table size,
+   and both tables and models only work within the domains they've seen; variety beats volume.
+3. **The reference has to travel too, and on paper that's the deal-breaker.** A 20M model is ~70 printed pages, a table 110-1,900 pages,
+   a Qwen/GLM-class model 900-14,000 pages, all of it per archive. A model can't be rebuilt from a seed (training isn't bit-reproducible);
+   a table can (E9). Estimated over whole archives, only the **self-bootstrapping archive** (method only, every part coded with the knowledge of
+   the earlier parts, E9) is realistic on paper, and it gains ~20-40% over xz/gzip. That doesn't justify a new standard against
+   proven tools.
+4. **Engineering that works and could be reused:** deterministic integer-only coding (tables and a neural network, E7/E12), fingerprinted
+   frozen resources, a bit-identical C port (E11), a table rebuilt bit-identically from a compressed seed (E9), a v2 container with unique
+   method ids, and per-file routing (v2).
+
+**Why we stop:** the original goal (forever-lasting paper storage) needs the reference on the same medium, and then the extra gain over
+standard compressors is too small for the complexity. More data and bigger models improve the digital numbers, but drift away from that goal.
+
+**If this is ever picked up again**, the realistic directions are:
+- the self-bootstrapping archive + a paper layer (symbology, ECC, header page): "paper budget" experiment first;
+- lossless recompression of already-compressed files (parked since the start);
+- a digital "library edition" with v2.
+
 ## Goal
 
 - A storage format for **archival data** (text first; later "already compressed data and
@@ -384,6 +415,13 @@ User decision: **adopt tricks 1 (routing) and 2 (match model), drop trick 3 (han
   **v2 vs gzip: books 2.9× / 2.7× / 2.4× smaller, wiki 2.4× / 2.1× / 1.9×, code 1.9× / 1.7× / 1.5×.** Never worse than the best single
   method, and sometimes better (books 10 KB: 1,813 vs 1,817 B). The match model earns its place on longer docs (a third of the 10 KB books).
   The neural model loses outside books only because it's books-trained. Next: add the R3-2 mixed-domain model (a new fingerprint) and rerun.
+
+### Final results pending (as of 2026-10-23 ~23:50)
+- R3-2 mixed-domain model (`lab/round2/train_mixed.py`, books 60% / wiki 25% / code 15%) trains until ~2026-10-24 18:30. It evaluates
+  itself on the book test set (fp32 + int8) into `lab/round2/results/20m_mixed.json`.
+- `lab/round2/final_mixed.sh` (detached) then runs the domain test on it: `lab/round2/results/domains_mixed_model.json`,
+  log `lab/round2/logs/final_mixed.log` (ends with FINAL_MIXED_DONE). Compare with E13 (books-only model: wiki 278 / code 301 B per 1 KB;
+  mixed table: 229 / 220 B).
 
 ## Reproducibility (2026-10-22)
 

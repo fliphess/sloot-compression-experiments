@@ -11,6 +11,7 @@ Methods:
   byte transformers (exp_tinymodel 20m, round2 20m_big), fp32 on CPU      ideal bits + 7 B container
 
 Usage: .venv/bin/python lab/round2/domains.py                      all methods → results/domains.json
+       .venv/bin/python lab/round2/domains.py --models-only NAME=CKPT ...   only these model checkpoints (tables/CKPT)
        .venv/bin/python lab/round2/domains.py --tables-only NAME=FILE ...   only the C codec with these tables
                                                    (FILE under tables/), e.g. mixed=c_round2_mixed.bin
 """
@@ -101,7 +102,29 @@ def tables_only(specs):
     (HERE / "results" / f"domains_{names}.json").write_text(json.dumps(rows, indent=1))
 
 
+def models_only(specs):
+    import torch
+    from common import CKPT, CONTAINER, build, byte_bits
+
+    torch.set_num_threads(4)
+    docs = domains()
+    rows = {f"{dom} {size}": {} for dom, size in docs}
+    for spec in specs:
+        name, ckpt = spec.split("=")
+        model = build("20m")
+        model.load_state_dict(torch.load(CKPT / ckpt, map_location="cpu"))
+        model.eval()
+        for (dom, size), group in docs.items():
+            bits = [float(pb.sum()) for pb in byte_bits(model, group, "cpu")]
+            rows[f"{dom} {size}"][name] = sum(math.ceil(b / 8) + CONTAINER for b in bits) / len(group)
+            print(name, dom, size, round(rows[f"{dom} {size}"][name]), flush=True)
+    names = "_".join(s.split("=")[0] for s in specs)
+    (HERE / "results" / f"domains_{names}.json").write_text(json.dumps(rows, indent=1))
+
+
 def main():
+    if sys.argv[1:2] == ["--models-only"]:
+        return models_only(sys.argv[2:])
     if sys.argv[1:2] == ["--tables-only"]:
         return tables_only(sys.argv[2:])
     import torch
