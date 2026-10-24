@@ -1,5 +1,5 @@
 [project]
-name = "rjbs-compression-experiments"
+name = "sloot-compression-experiments"
 version = "0.1.0"
 description = "A hobby experiment revisiting Jan Sloot's compression myth: shared tables, small neural models, deterministic coding"
 readme = "README.md"

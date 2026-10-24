@@ -1,4 +1,4 @@
-# rjbs-compression-experiments
+# sloot-compression-experiments
 
 A Friday-evening hobby experiment: what could Jan Sloot's legendary "film on a chip card" compression have been, and how far can
 you get in 2026 with shared tables, small neural networks and deterministic arithmetic coding? Done for fun and to learn; not research.
@@ -12,11 +12,25 @@ printed too, which makes the approach unrealistic for its original goal. Along t
 2. **[RESEARCH.md](RESEARCH.md)**: the detailed log, with every decision and every number, in order.
 3. **[lab/README.md](lab/README.md)**: a map of all code and experiments, each with its verdict. Every experiment directory has its own README.
 
+## Try it without training anything
+
+The [v1.0 release](https://github.com/fliphess/sloot-compression-experiments/releases/tag/v1.0) has the frozen files, so you can
+compress and decompress right away (numpy only, no PyTorch or GPU needed). Put them in `tables/`:
+
+```sh
+uv sync
+uv run python lab/round2/intmodel/nncodec.py compress   tables/intmodel_20m_mixed.bin IN OUT   # neural, integer-only (slow: ~0.2 KB/s decode)
+uv run python lab/round2/intmodel/nncodec.py decompress tables/intmodel_20m_mixed.bin OUT BACK
+uv run python lab/codec.py compress   IN OUT                                                    # table codec, needs tables/en-gutenberg-v1.npz
+uv run python lab/codec.py decompress OUT BACK
+```
+
 ## Layout
 
 | path | in git | contents |
 |---|---|---|
 | `WRITEUP.md`, `RESEARCH.md` | yes | the story and the detailed log |
+| `LICENSE` | yes | MIT (code); see the release notes for the data behind the models |
 | `pyproject.toml`, `uv.lock` | yes | Python dependencies (numpy; PyTorch as the optional `neural` extra) |
 | `lab/` | yes | all code, experiment results and logs |
 | `lab/corpus_manifest.json`, `lab/exp_table/manifest.json` | yes | SHA-256 of every corpus file, so a rebuilt corpus can be checked |
