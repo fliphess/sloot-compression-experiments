@@ -1,0 +1,29 @@
+{
+ "wiki 1000": {
+  "mixed_model": 172.5
+ },
+ "code 1000": {
+  "mixed_model": 136.9
+ },
+ "books 1000": {
+  "mixed_model": 193.86666666666667
+ },
+ "wiki 3000": {
+  "mixed_model": 499.2
+ },
+ "code 3000": {
+  "mixed_model": 390.03333333333336
+ },
+ "books 3000": {
+  "mixed_model": 546.0333333333333
+ },
+ "wiki 10000": {
+  "mixed_model": 1598.0666666666666
+ },
+ "code 10000": {
+  "mixed_model": 1237.3
+ },
+ "books 10000": {
+  "mixed_model": 1794.6333333333334
+ }
+}

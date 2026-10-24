@@ -426,11 +426,15 @@ User decision: **adopt tricks 1 (routing) and 2 (match model), drop trick 3 (han
 <!-- mixed-results:start -->
 | ideal bytes per doc, 1 / 3 / 10 KB | gzip (real) | mixed table + adaptive (real) | books-only 20M model | **mixed 20M model** |
 |---|---|---|---|---|
-| books | 565 / 1,480 / 4,410 | 256 / 732 / 2,382 | 197 / 554 / 1,819 | **… / … / …** |
-| wiki | 538 / 1,411 / 4,201 | 229 / 679 / 2,195 | 278 / 811 / 2,749 | **… / … / …** |
-| code | 421 / 1,061 / 2,936 | 220 / 638 / 1,980 | 301 / 863 / 2,796 | **… / … / …** |
+| books | 565 / 1,480 / 4,410 | 256 / 732 / 2,382 | 197 / 554 / 1,819 | **194 / 546 / 1,795** |
+| wiki | 538 / 1,411 / 4,201 | 229 / 679 / 2,195 | 278 / 811 / 2,749 | **172 / 499 / 1,598** |
+| code | 421 / 1,061 / 2,936 | 220 / 638 / 1,980 | 301 / 863 / 2,796 | **137 / 390 / 1,237** |
 
-*Pending: the run finishes ~2026-10-24 18:30; this table fills itself in afterwards (`lab/round2/fill_mixed_results.py`).*
+Measured on the domains.py test set (30 docs per size, never in training). Model columns are ideal bits + 7 B container.
+One small model now covers all three kinds of text, and it's even slightly better on books than the books-only model
+(whole test books: 1.531 vs 1.562 bpc; int8 costs +0.3%). Caveat: the Wikipedia and code tests come from the same sources as the
+training data (other articles from the same 2006 dump; other files from the same project, CPython), so those gains are optimistic,
+code most of all. A fair test would use code from other projects.
 <!-- mixed-results:end -->
 
 ## Reproducibility (2026-10-22)
